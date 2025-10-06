@@ -1,0 +1,144 @@
+<iDOCTYPE html>
+<html lang="eng">
+<html>
+    <head>
+     <title>Albertisment</title>
+     <meta name="viewport" content="width=device-width", initial-scale="1";/>
+     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon16.png">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/ANIM_style.css">
+
+    </head>
+    <body>
+        <section id="HEADER LOGO" class="HEADER">
+         <div class="ALBERTISMENTlogo">
+            <a href="#ANIMATION about me">
+                 <img src="img/LOGO.PNG" width="677" />
+             </a>
+         </div>
+        </section>
+
+        <nav>
+            <ul>
+                <li class="active"><a href="index.html">ANIMATION</a></li>
+                <li> <a href="ILLUTRATION.html">ILLUSTRATION</a></li>
+                <li> <a>PROJECTS</a></li>
+                <li> <a>SKETCHBOOK</a></li>
+            </ul>
+        </nav>
+
+        <section id="ANIMATION contentgrid" class="CONTENTGRID">
+            <div class="test">
+                <img src="img/anim/ANIM-01-EXPEDICION.gif" alt="animacion 1" data-full="img/anim/HQ/ANIM-01-EXPEDICION_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/prueba low res.gif" alt="animacion 1" data-full="img/anim/HQ/ANIM-02-CARETA_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/ANIM-05-RP2.gif" ALT="animacion 2" data-full="img/anim/HQ/ANIM-05-RP2_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/ANIM-03-LOSS.gif" ALT="animacion 3" data-full="img/anim/HQ/ANIM-03-LOSS_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/ANIM-04-RP1.gif" ALT="animacion 4" data-full="img/anim/HQ/ANIM-04-RP1_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/ANIM-02-CARETA.gif" ALT="animacion 5" data-full="img/anim/HQ/ANIM-02-CARETA_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/ANIM-06-HOUSEBROKEN.gif" ALT="animacion 6" data-full="img/anim/HQ/ANIM-06-HOUSEBROKEN_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/ANIM-07-HORMIGAS.gif" ALT="animacion 7" data-full="img/anim/HQ/ANIM-07-HORMIGAS_HQ.gif" width="252"/> 
+            </div>
+            <div class="test">
+                <img src="img/anim/ANIM-08-VOLTERETA.gif" ALT="animacion 8" data-full="img/anim/HQ/ANIM-08-VOLTERETA_HQ.gif"="252"/> 
+            </div>
+        </section>
+
+        <section id="ANIMATION about me" class="ABOUTME">
+            <div class="ABOUTMETEXTO container">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem mollitia, cupiditate voluptatum dolor magnam eius reiciendis, dolore maxime deleniti sunt voluptatem? Placeat non similique dolores sapiente in. Quos, ab perspiciatis?
+                </p>
+            </div> 
+            <div class="ABOUTMEANIMVISUAL">
+                <img src="img/anim/ANIMVISUAL-TEST-BLACK_V2.png" alt="albertisment animando"/>
+            </div>
+        </section>
+
+        <section class="BOTONESBOTTOM">
+            <div class="Mail">
+                <a href="mailto:albertisment.animation@gmail.com">albertisment.animation@gmail.com</a>
+            </div>
+            <div class="IG"> 
+                <a href="https://www.instagram.com/albertisment/"><img src="img/buttons/buttonIG.png" width="20px" alt="IG"/></a>
+            </div>
+            <div class="LinkedIn">
+                <a href="https://es.linkedin.com/in/alberto-andrés-sánchez-318b201b1"> <img src="img/buttons/buttonLINKEDIN.png" width="20px" alt="LINKEDIN"/></a>
+            </div>
+        </section>
+
+        <!-- Lightbox markup -->
+        <div class="lightbox" id="lightbox" aria-hidden="true">
+          <img id="lightbox-image" alt="Expanded image" />
+        </div>
+
+        <script>
+          (function(){
+            const grid = document.querySelector('section.CONTENTGRID');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-image');
+            if (!grid || !lightbox || !lightboxImg) return;
+
+            grid.addEventListener('click', (e) => {
+              const img = e.target.closest('img');
+              if (!img) return;
+              lightboxImg.src = img.getAttribute('data-full') || img.src;
+              lightbox.classList.add('open');
+              lightbox.setAttribute('aria-hidden', 'false');
+              document.body.style.overflow = 'hidden';
+            });
+
+            const close = () => {
+              lightbox.classList.remove('open');
+              lightbox.setAttribute('aria-hidden', 'true');
+              lightboxImg.src = '';
+              document.body.style.overflow = '';
+            };
+
+            lightbox.addEventListener('click', (e) => {
+              if (e.target === lightbox || e.target === lightboxImg) {
+                close();
+              }
+            });
+            window.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape' && lightbox.classList.contains('open')) close();
+            });
+          })();
+        </script>
+
+        <!-- Background scroll effect -->
+        <script>
+          let ticking = false;
+          
+          function updateBackground() {
+            const scrollY = window.scrollY;
+            const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
+            document.body.style.backgroundPosition = `center ${-moveY}px`;
+            ticking = false;
+          }
+          
+          window.addEventListener('scroll', () => {
+            if (!ticking) {
+              requestAnimationFrame(updateBackground);
+              ticking = true;
+            }
+          }, { passive: true });
+        </script>
+    </body>
+</html>    
