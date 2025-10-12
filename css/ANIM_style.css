@@ -145,7 +145,7 @@ section.ABOUTME div.ABOUTMETEXTO p{
 section.ABOUTME .ABOUTMEANIMVISUAL img{
     justify-content: center;
     height: 50vh;
-    widh: auto;
+    width: auto;
 }
 
 section.BOTONESBOTTOM{
@@ -155,7 +155,7 @@ section.BOTONESBOTTOM{
     margin-top: 40px;
     margin-bottom: 85px;
 }
-section.BOTONESBOTTOM .MAIL {
+section.BOTONESBOTTOM .Mail {
     background-color: #ffffff;
     padding-top: 9px;
     padding-bottom: 9px;
@@ -163,15 +163,15 @@ section.BOTONESBOTTOM .MAIL {
     padding-right: 20px;
     border-radius: 150px;
 }
-section.BOTONESBOTTOM .MAIL a {
+section.BOTONESBOTTOM .Mail a {
     color: var(--NARANJA1);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
 }
 
-section.BOTONESBOTTOM .MAIL a:hover{
-color:var(--AZUL1)
+section.BOTONESBOTTOM .Mail a:hover{
+color:var(--AZUL1);
 }
 
 section.BOTONESBOTTOM .IG {
@@ -185,7 +185,7 @@ section.BOTONESBOTTOM .IG {
 }
 
 
-section.BOTONESBOTTOM .LINKEDIN {
+section.BOTONESBOTTOM .LinkedIn {
     background-color: #ffffff;
     padding-top: 9px;
     padding-bottom: 9px;
@@ -286,7 +286,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
      section.ABOUTME .ABOUTMEANIMVISUAL img{
         justify-content: center;
         height: 40vh;
-        widh: auto;
+        width: auto;
     }
 
     section.BOTONESBOTTOM{
