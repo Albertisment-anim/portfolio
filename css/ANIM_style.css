@@ -139,7 +139,7 @@ section.ABOUTME{
 }
 section.ABOUTME div.ABOUTMETEXTO p{
     margin: 0;
-    
+    margin-bottom: 35px;
     justify-content: center;
 }
 section.ABOUTME .ABOUTMEANIMVISUAL img{
@@ -242,9 +242,32 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
     }
 }
 @media (max-width: 640px) {
-    section.CONTENTGRID {
-        grid-template-columns: 1fr;
+
+    section.HEADER div.ALBERTISMENTlogo img {
+        height: 10.5vh;
+        width: auto;
     }
+    section.CONTENTGRID {
+        flex-wrap: wrap;
+    }
+    section.CONTENTGRID .columna1,
+    section.CONTENTGRID .columna2,
+    section.CONTENTGRID .columna3 {
+        flex: 1 1 calc(25% - 7.5px);  
+    }
+
+
+    nav {
+        width: 100%;
+        height: 100px;
+        top: 0;
+        left: 0;
+        font-size: 12px;
+        font-weight: 700;
+        color:var(--AZUL1);
+        z-index:1;
+     }
+
     nav ul {
         width: 100%;
         height: 80%;
@@ -252,7 +275,26 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
      }
      
      nav ul li {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
      }
-}
+
+     section.ABOUTME div.ABOUTMETEXTO p{
+        font-size: 15px;
+    }
+
+     section.ABOUTME .ABOUTMEANIMVISUAL img{
+        justify-content: center;
+        height: 40vh;
+        widh: auto;
+    }
+
+    section.BOTONESBOTTOM{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 85px;
+        scale: 0.9;
+    }
+    }

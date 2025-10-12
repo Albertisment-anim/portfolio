@@ -281,6 +281,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
 }
 @media (max-width: 640px) {
 
+
     section.HEADER div.ALBERTISMENTlogo img {
         height: 10.5vh;
         width: auto;
@@ -317,4 +318,23 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         padding-right: 10px;
         
      }
+
+     section.ABOUTME div.ABOUTMETEXTO p{
+        font-size: 15px;
+    }
+
+     section.ABOUTME .ABOUTMEANIMVISUAL img{
+        justify-content: center;
+        height: 40vh;
+        widh: auto;
+    }
+
+    section.BOTONESBOTTOM{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 85px;
+        scale: 0.9;
+    }
 }
