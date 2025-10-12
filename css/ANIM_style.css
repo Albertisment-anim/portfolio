@@ -290,11 +290,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
     }
 
     section.BOTONESBOTTOM{
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 40px;
-        margin-bottom: 85px;
+       
         scale: 0.9;
     }
     }
