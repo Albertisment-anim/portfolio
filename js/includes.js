@@ -24,6 +24,11 @@
             link.parentElement.classList.add('active');
           }
         }
+        // Set header logo link to page-specific About section
+        var headerAnchor = document.querySelector('section.HEADER a');
+        if (headerAnchor) {
+          headerAnchor.setAttribute('href', current + '#ABOUTME');
+        }
       } catch(e){}
     });
   }
