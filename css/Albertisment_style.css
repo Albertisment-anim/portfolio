@@ -208,9 +208,7 @@ section.CONTENTGRID-ILLUSTRATION .tile-row .tile.small {
 
 /*ABOUT ME*/
 
-#ABOUTME,
-#ABOUTME,
-#ABOUTME {
+section.ABOUT {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -339,7 +337,6 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
     }
 }
 @media (max-width: 640px) {
-
     section.HEADER div.ALBERTISMENTlogo img {
         height: 10.5vh;
         width: auto;
@@ -360,7 +357,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
     section.CONTENTGRID-ILLUSTRATION .columna2,
     section.CONTENTGRID-ILLUSTRATION .columna3 {
         flex: 1 1 calc(25% - 7.5px);  
-
+    }
 
     nav {
         width: 100%;
@@ -371,6 +368,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         font-weight: 700;
         color:var(--AZUL1);
         z-index:1;
+        
      }
 
     nav ul {
@@ -393,10 +391,10 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         height: 40vh;
         width: auto;
     }
-}
+
 
     section.BOTONESBOTTOM{
        
         scale: 0.9;
     }
-    }
+  }
