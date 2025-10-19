@@ -208,21 +208,21 @@ section.CONTENTGRID-ILLUSTRATION .tile-row .tile.small {
 
 /*ABOUT ME*/
 
-section.index.html#ABOUTME,
-section.PROJECTS.html#ABOUTME,
-section.ILLUSTRATION.html#ABOUTME{
+#ABOUTME,
+#ABOUTME,
+#ABOUTME {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items:center;
     margin-top: 50px;
 }
-section.ABOUTME div.ABOUTMETEXTO p{
+ div.ABOUTMETEXTO p{
     margin: 0;
     margin-bottom: 35px;
     justify-content: center;
 }
-section.ABOUTME .ABOUTMEANIMVISUAL img{
+ div.ABOUTMEANIMVISUAL img{
     justify-content: center;
     height: 50vh;
     width: auto;
@@ -393,6 +393,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         height: 40vh;
         width: auto;
     }
+}
 
     section.BOTONESBOTTOM{
        
