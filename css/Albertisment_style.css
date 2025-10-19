@@ -208,7 +208,8 @@ section.CONTENTGRID-ILLUSTRATION .tile-row .tile.small {
 
 /*ABOUT ME*/
 
-section.ABOUTME{
+section.ABOUTME,
+section.ILLUSTRATION.html#ABOUTME{
     flex: 1;
     display: flex;
     flex-direction: column;
