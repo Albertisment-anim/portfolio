@@ -14,22 +14,8 @@
 
     </head>
     <body>
-        <section id="HEADER LOGO" class="HEADER">
-         <div class="ALBERTISMENTlogo">
-            <a href="#ILLUSTRATION about me">
-                 <img src="img/LOGO.webp" width="677" />
-             </a>
-         </div>
-        </section>
-
-        <nav>
-            <ul>
-                <li> <a href="index.html">ANIMATION</a></li>
-                <li > <a href="ILLUSTRATION.html">ILLUSTRATION</a></li>
-                <li class="active"> <a href="PROJECTS.html">PROJECTS</a></li>
-                <li> <a>SKETCHBOOK</a></li>
-            </ul>
-        </nav>
+        <div data-include="includes/header.html"></div>
+        <div data-include="includes/nav.html"></div>
 
         <section id="PROJECTS contentgrid" class="CONTENTGRID">
           <div class="test">
@@ -74,17 +60,7 @@
           </div>
       </section>
 
-      <section class="BOTONESBOTTOM">
-          <div class="Mail">
-              <a href="mailto:albertisment.animation@gmail.com">albertisment.animation@gmail.com</a>
-          </div>
-          <div class="IG"> 
-              <a href="https://www.instagram.com/albertisment/"><img src="img/buttons/buttonIG.webp" width="20px" alt="IG"/></a>
-          </div>
-          <div class="LinkedIn">
-              <a href="https://es.linkedin.com/in/alberto-andrés-sánchez-318b201b1"> <img src="img/buttons/buttonLINKEDIN.webp" width="20px" alt="LINKEDIN"/></a>
-          </div>
-      </section>
+      <div data-include="includes/botonesbottom.html"></div>
 
       <!-- Lightbox markup -->
       <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -124,6 +100,7 @@
           });
         })();
       </script>
+      <script src="js/includes.js"></script>
 
       <!-- Background scroll effect -->
       <script>
