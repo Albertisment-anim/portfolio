@@ -7,7 +7,7 @@
     padding: 0;
     background: var(--AZUL1);
     background-image: url('BG1_.png');
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed; 
@@ -53,11 +53,13 @@ nav {
     border-radius: 150px;
     list-style: none;
     margin-left: 0;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s cubic-bezier(.21,-0.01,.03,.99);
+    transition: scale 0.3s cubic-bezier(.21,-0.01,.03,.99);
         }      
 
  nav ul li:hover {
      color:#FF8000;
+     scale: 105%;
         }
 
 /* Normalize link styles in nav */
@@ -76,11 +78,10 @@ nav ul li.active {
      font-weight: 500;
      background-color: var(--AZUL1);
      color:#ffffff;
-     transition: background-color 0.3s ease-in-out;
         }    
 
 nav ul li.active:hover{
-    background-color:var(--NARANJA1)
+    background-color:var(--NARANJA1);
 }
  
  
@@ -95,7 +96,8 @@ nav ul li.active:hover{
      justify-content: center;
 }
 section.HEADER img:hover {
-    mix-blend-mode:multiply;
+    scale:102%;
+    transition: scale 0.6s cubic-bezier(0,.66,0,1);
 }
 
 section.HEADER div.ALBERTISMENTlogo img {
@@ -119,7 +121,13 @@ section.CONTENTGRID img {
     height: auto;
     display: block;
     cursor: pointer;
+    transition: scale 0.7s cubic-bezier(0,.91,0,.99);
 }
+
+section.CONTENTGRID img:hover {
+    scale: 105%;
+}
+
 
 /* Shared container to align with grid margins */
 .container {
@@ -162,6 +170,7 @@ section.BOTONESBOTTOM .Mail {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 150px;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 section.BOTONESBOTTOM .Mail a {
     color: var(--NARANJA1);
@@ -174,40 +183,48 @@ section.BOTONESBOTTOM .Mail a:hover{
 color:var(--AZUL1);
 }
 
+section.BOTONESBOTTOM .Mail:hover,
+section.BOTONESBOTTOM .IG:hover,
+section.BOTONESBOTTOM .LinkedIn:hover {
+    transform: translateY(-2px);
+}
+
 section.BOTONESBOTTOM .IG {
     background-color: #ffffff;
     padding-top: 9px;
-    padding-bottom: 9px;
+    padding-bottom: 7px;
     padding-left: 9px;
     padding-right: 9px;
     border-radius: 150px;
     margin-left: 15px;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 
 section.BOTONESBOTTOM .LinkedIn {
     background-color: #ffffff;
     padding-top: 9px;
-    padding-bottom: 9px;
+    padding-bottom: 7px;
     padding-left: 9px;
     padding-right: 9px;
     border-radius: 150px;
     margin-left: 15px;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* Swap PNGs on hover (match current HTML classes) */
 section.BOTONESBOTTOM .IG a img {
-    content: url('../img/buttons/buttonIG.png');
+    content: url('../img/buttons/buttonIG.webp');
 }
 
 section.BOTONESBOTTOM .IG a:hover img {
-    content: url('../img/buttons/buttonIG_hover.png');
+    content: url('../img/buttons/buttonIG_hover.webp');
 }
 section.BOTONESBOTTOM .LinkedIn a img {
-    content: url('../img/buttons/buttonLINKEDIN.png');
+    content: url('../img/buttons/buttonLINKEDIN.webp');
 }
 section.BOTONESBOTTOM .LinkedIn a:hover img {
-    content: url('../img/buttons/buttonLINKEDIN_hover.png');
+    content: url('../img/buttons/buttonLINKEDIN_hover.webp');
 }
 
 /* Lightbox overlay */
