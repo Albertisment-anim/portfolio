@@ -336,21 +336,9 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         flex: 1 1 1 calc(33.33% - 5px);   /* 2 columns on medium screens */
     }
 
-    nav {
-        width: 100%;
-        height: 100px;
-        top: 0;
-        left: 0;
-        font-size: 12px;
-        font-weight: 700;
-        color:var(--AZUL1);
-        z-index:1;
-        
-     }
+  
 
     nav ul {
-        width: 100%;
-        height: 80%;
         gap: 0px;
      }
      
@@ -358,8 +346,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         padding-left: 10px;
         padding-right: 10px;
      }
-
-
+    
 }
 @media (max-width: 640px) {
     section.HEADER div.ALBERTISMENTlogo img {
@@ -385,20 +372,10 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
     }
 
     nav {
-        width: 100%;
-        height: 100px;
-        top: 0;
-        left: 0;
         font-size: 12px;
-        font-weight: 700;
-        color:var(--AZUL1);
-        z-index:1;
-        
      }
 
     nav ul {
-        width: 100%;
-        height: 80%;
         gap: 0px;
      }
      
