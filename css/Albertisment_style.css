@@ -6,7 +6,8 @@
     margin: 0;
     padding: 0;
     background: var(--AZUL1);
-    background-image: url('BG1_.png');
+    background-image: url('BG1_.webp'),
+    linear-gradient(to right, var(--AZUL1) 50%, var(--BLANCO) 50%);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -18,6 +19,7 @@
     color: #ffffff;
     --AZUL1:#0070FF;
     --NARANJA1:#FF8000;
+    --BLANCO: #f6f6f6;
     overflow-x: hidden;
 }
   
@@ -108,10 +110,11 @@ section.HEADER div.ALBERTISMENTlogo img {
 /*content grid animacion y proyectos*/
 
 section.CONTENTGRID {
+    text-decoration: none;
     display: grid;
     grid-template-columns: repeat(3, minmax(180px, 1fr));
     gap: 15px;
-    align-items: start;
+    align-items:start;
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
@@ -205,6 +208,78 @@ section.CONTENTGRID-ILLUSTRATION .tile-row .tile.small {
     padding-left: 16px;
     padding-right: 16px;
 }
+
+/*content grid proyectos*/
+div.tile-project:hover{
+    scale: 105%;
+}
+
+div.tile-project {
+    text-decoration: none;
+    background-color: #ffffff;
+    transition: scale 0.7s cubic-bezier(0,.91,0,.99);
+    padding-bottom: 5px;
+    border-radius: 2%;
+}
+
+/* Remove underline on links wrapping project tiles */
+section.CONTENTGRID > a,
+section.CONTENTGRID > a:visited,
+section.CONTENTGRID > a:hover,
+section.CONTENTGRID > a:active {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Ensure links inside project tiles are not underlined and inherit color */
+div.tile-project a,
+div.tile-project a:visited,
+div.tile-project a:hover,
+div.tile-project a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/*estilos textos*/
+
+#h1 {
+    margin-left:10px;
+    margin-right:10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--AZUL1);
+}
+
+#h2{
+    margin-top: -12px;
+    margin-left:10px;
+    margin-right:10px;
+    font-size: 14px;
+    color: var(--NARANJA1);
+}
+
+#text{
+    font-size: 13px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top: -5px;
+    color: var(--AZUL1);
+}
+
+#h1:hover{
+    font-weight: 700;
+}
+#h2:hover{
+font-weight: 500;
+}
+
+#text:hover{
+    font-weight:500;
+}
+
+
 
 /*ABOUT ME*/
 
@@ -339,6 +414,10 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
     
 }
 @media (max-width: 640px) {
+
+    html,body {
+        background-size: 180% 100%;
+    }
     section.HEADER div.ALBERTISMENTlogo img {
         height: 10.5vh;
         width: auto;
