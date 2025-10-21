@@ -6,10 +6,9 @@
     margin: 0;
     padding: 0;
     background: var(--AZUL1);
-    background-image: url('BG1_.webp'),
-    linear-gradient(to right, var(--AZUL1) 50%, var(--BLANCO) 50%);
+    background-image: url('BG1_.webp');
     background-size: cover;
-    background-position: bottom;
+    background-position: top;
     background-repeat: no-repeat;
     background-attachment: fixed; 
     font-family: "Figtree", sans-serif;
@@ -97,12 +96,12 @@ nav ul li.active:hover{
      align-items: center;
      justify-content: center;
 }
-section.HEADER img:hover {
+section.HEADER video:hover {
     scale:102%;
     transition: scale 0.6s cubic-bezier(0,.66,0,1);
 }
 
-section.HEADER div.ALBERTISMENTlogo img {
+section.HEADER video {
     height: 17.5vh;
     width: auto;
 }
@@ -416,9 +415,9 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
 @media (max-width: 640px) {
 
     html,body {
-        background-size: 180% 100%;
+        background-size: 180% 60%;
     }
-    section.HEADER div.ALBERTISMENTlogo img {
+    section.HEADER video {
         height: 10.5vh;
         width: auto;
     }
