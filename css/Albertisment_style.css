@@ -96,12 +96,12 @@ nav ul li.active:hover{
      align-items: center;
      justify-content: center;
 }
-section.HEADER video:hover {
+section.HEADER video, img:hover {
     scale:102%;
     transition: scale 0.6s cubic-bezier(0,.66,0,1);
 }
 
-section.HEADER video {
+section.HEADER video, img {
     height: 17.5vh;
     width: auto;
 }
