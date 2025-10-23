@@ -106,21 +106,6 @@ section.HEADER video, img {
     width: auto;
 }
 
-.logo-fallback {
-    display: none;
-    width: 677px;
-  }
-  
-  /* Safari-only CSS hack */
-  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
-    #hoverVideo {
-      display: none !important;
-    }
-    .logo-fallback {
-      display: block !important;
-    }
-  }
-
 /*content grid animacion y proyectos*/
 
 section.CONTENTGRID {
@@ -350,7 +335,7 @@ section.BOTONESBOTTOM .LinkedIn:hover {
     transform: translateY(-2px);
 }
 
-section.BOTONESBOTTOM .IG {
+section.BOTONESBOTTOM .IG, .LinkedIn {
     background-color: #ffffff;
     padding-top: 9px;
     padding-bottom: 7px;
@@ -361,16 +346,8 @@ section.BOTONESBOTTOM .IG {
     transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-
-section.BOTONESBOTTOM .LinkedIn {
-    background-color: #ffffff;
-    padding-top: 9px;
-    padding-bottom: 7px;
-    padding-left: 9px;
-    padding-right: 9px;
-    border-radius: 150px;
-    margin-left: 15px;
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+section.BOTONESBOTTOM .IG img, .LinkedIn img {
+    height:20px
 }
 
 /* Swap PNGs on hover (match current HTML classes) */
@@ -482,7 +459,6 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
 
 
     section.BOTONESBOTTOM{
-       
         scale: 0.9;
     }
   }
