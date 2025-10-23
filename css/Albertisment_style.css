@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     background: var(--AZUL1);
-    background-image: url('BG1_.webp');
+    background-image: url('BG3_.webp');
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -105,6 +105,21 @@ section.HEADER video {
     height: 17.5vh;
     width: auto;
 }
+
+.logo-fallback {
+    display: none;
+    width: 677px;
+  }
+  
+  /* Safari-only CSS hack */
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    #hoverVideo {
+      display: none !important;
+    }
+    .logo-fallback {
+      display: block !important;
+    }
+  }
 
 /*content grid animacion y proyectos*/
 
@@ -410,6 +425,7 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         flex: 1 1 1 calc(33.33% - 5px);   /* 2 columns on medium screens */
     }
 
+
     
 }
 @media (max-width: 640px) {
@@ -451,6 +467,8 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
         padding-left: 10px;
         padding-right: 10px;
      }
+
+    
 
      section.ABOUTME div.ABOUTMETEXTO p{
         font-size: 15px;
