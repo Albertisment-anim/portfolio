@@ -21,37 +21,7 @@
 
 
   
-<script>
-    // Run immediately (before DOM loads)
-    (function() {
-      const ua = navigator.userAgent;
-    
-      // Detect Safari (exclude Chrome, Chromium, Android browsers)
-      const isSafari = /^((?!chrome|crios|android).)*safari/i.test(ua);
-    
-      if (isSafari) {
-        // Wait just long enough for the DOM element to exist
-        window.addEventListener("DOMContentLoaded", function() {
-          const video = document.getElementById("hoverVideo");
-          const container = document.getElementById("logoContainer");
-          if (!video || !container) return;
-    
-          // Remove the video before it tries to load
-          video.remove();
-    
-          // Create the fallback image
-          const img = document.createElement("img");
-          img.src = "img/LOGO.webp"; // your fallback image
-          img.alt = "Logo";
-          img.width = 677;
-          img.style.display = "block";
-    
-          // Insert the image into the same container
-          container.appendChild(img);
-        });
-      }
-    })();
-    </script>
+
   
 
 
