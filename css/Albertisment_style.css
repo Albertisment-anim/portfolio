@@ -106,6 +106,16 @@ section.HEADER video {
     width: auto;
 }
 
+section.HEADER img:hover {
+    scale:102%;
+    transition: scale 0.6s cubic-bezier(0,.66,0,1);
+}
+
+section.HEADER img {
+    height: 17.5vh;
+    width: auto;
+}
+
 /*content grid animacion y proyectos*/
 
 section.CONTENTGRID {
