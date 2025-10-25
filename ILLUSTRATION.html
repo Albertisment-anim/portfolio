@@ -145,5 +145,60 @@
             }
           }, { passive: true });
         </script>
+
+        <script>
+          document.querySelectorAll('[data-include]').forEach(el => {
+          fetch(el.getAttribute('data-include'))
+           .then(res => res.text())
+           .then(data => {
+             el.innerHTML = data;
+              fixHeaderVideo(); // ✅ call the function after header loads
+            });
+            });
+
+          function fixHeaderVideo() {
+            const ua = navigator.userAgent.toLowerCase();
+            const isSafari =
+              ua.includes("safari") &&
+              !ua.includes("chrome") &&
+              !ua.includes("crios") &&
+              !ua.includes("android");
+
+            const video = document.getElementById("hoverVideo");
+            if (!video) {
+              console.warn("No hoverVideo element found yet.");
+              return;
+            }
+
+            // Remove old sources (if any)
+            while (video.firstChild) {
+              video.removeChild(video.firstChild);
+            }
+
+            if (isSafari) {
+              // Safari gets a static image instead of the video
+              const img = document.createElement("img");
+              img.src = "img/LOGO.webp";
+              img.alt = "Logo";
+              img.width = 677;
+
+              video.parentNode.replaceChild(img, video);
+              console.log("Safari detected — replaced video with static image.");
+            } else {
+              // Chrome / Firefox / Edge get WebM
+              const source = document.createElement("source");
+              source.src = "img/LOGO-ANIM.webm";
+              source.type = "video/webm";
+              video.appendChild(source);
+              video.load();
+              console.log("Non-Safari browser — WebM loaded.");
+            }
+          }
+
+        </script>
+
+ 
+
+        
     </body>
 </html>    
