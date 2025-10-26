@@ -415,12 +415,7 @@ font-weight: 500;
     color: var(--NARANJA1);
 }
 
-#h3-2 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--BLANCO);
-}
+
 #text-2{
     font-size: 15px;
     margin-top: 10px;
@@ -620,21 +615,46 @@ div.totop {
         flex: 1 1 1 calc(33.33% - 5px);   /* 2 columns on medium screens */
     }
 
+    section.CONTENTGRID-nomargin {
+        
+        grid-template-columns: repeat(3, minmax(10px, 1fr));
+        max-width: 1000px;
+    }
+        
+
     
-
-
+    section.CONTENTGRID-2 {
+        
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        max-width: 1000px;
+       
+    }
+    
+    section.CONTENTGRID-2 iframe {
+        height: 200px;
+     
+    }
+    
+    section.CONTENT img {
+        max-width: 100%;
+       
+    }
+ 
+    
     
 }
 @media (max-width: 640px) {
 
     html,body {
-        background-size: 180% 60%;
+        background-size: 290% 80%;
     }
-    section.HEADER video {
+    section.HEADER img {
         height: 10.5vh;
         width: auto;
     }
     section.CONTENTGRID {
+        gap:5px;
+   padding: 5px;
         flex-wrap: wrap;
     }
     section.CONTENTGRID .columna1,
@@ -645,11 +665,13 @@ div.totop {
 
     section.CONTENTGRID-ILLUSTRATION {
         flex-wrap: wrap;
+        gap:3px;
     }
     section.CONTENTGRID-ILLUSTRATION .columna1,
     section.CONTENTGRID-ILLUSTRATION .columna2,
     section.CONTENTGRID-ILLUSTRATION .columna3 {
-        flex: 1 1 calc(25% - 7.5px);  
+        flex: 1 1 calc(25% - 7.5px); 
+        gap:3px; 
     }
 
     nav {
@@ -682,4 +704,53 @@ div.totop {
        
         scale: 0.9;
     }
-  }
+    #h1-2 {
+        margin-top: -20px;
+        font-size: 15px;
+
+           }    
+    
+    
+    #h2-2{
+        font-size: 12px;
+    }
+    
+   
+    #text-2{
+        font-size: 14px;
+      
+    }
+    
+    #text-2-white{
+        font-size: 14px;
+       
+    }
+    
+    section.CONTENTGRID-nomargin {
+        
+        grid-template-columns: repeat(1, minmax(10px, 1fr));
+        max-width: 1000px;
+        gap:5px;
+        height:100%;
+        margin-bottom:5px;
+    }
+    section.CONTENTGRID-nomargin iframe, video {
+        width: 100%;
+        margin-bottom: 0px;
+        height:100%;
+    }
+
+    
+    section.CONTENTGRID-2 {
+        
+        grid-template-columns: repeat(1, minmax(300px, 1fr));       
+    }
+    
+    section.CONTENTGRID-2 iframe {
+        height: 200px;
+     
+    }
+    
+    
+    }
+  
