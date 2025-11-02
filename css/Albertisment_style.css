@@ -145,21 +145,63 @@ section.CONTENTGRID {
     align-items:start;
     max-width: 1100px;
     margin-left: auto;
+    margin-top: 15px;
     margin-right: auto;
     padding-left: 16px;
     padding-right: 16px;
 }
-section.CONTENTGRID img {
+section.CONTENTGRID img, video {
+    padding: 0px;
     width: 100%;
-    height: auto%;
+    height: auto;
     display: block;
     cursor: pointer;
     transition: scale 0.7s cubic-bezier(0,.91,0,.99);
 }
 
-section.CONTENTGRID img:hover {
+section.CONTENTGRID video:hover, img:hover {
     scale: 105%;
 }
+
+
+section.COLUMNAS {
+    text-decoration: none;
+    display: flex;
+    gap: 15px;
+    align-items:start;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+section.COLUMNAS div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.COLUMNAS img {
+   max-width: 100%;
+  
+    padding: 0px;
+    display: block;
+    cursor: pointer;
+    transition: scale 0.7s cubic-bezier(0,.91,0,.99);
+}
+
+section.COLUMNAS video {
+    padding: 0px;
+    display: block;
+    cursor: pointer;
+    transition: scale 0.7s cubic-bezier(0,.91,0,.99);
+}
+
+section.COLUMNAS video:hover, img:hover {
+    scale: 105%;
+}
+
 
 
 section.CONTENTGRID-nomargin {
@@ -168,20 +210,63 @@ section.CONTENTGRID-nomargin {
     grid-template-columns: repeat(3, minmax(500px, 1fr));
     gap: 15px;
     justify-content: center;
+    align-items: center;
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 16px;
     padding-right: 16px;
 }
-section.CONTENTGRID-nomargin iframe, video {
+section.CONTENTGRID-nomargin iframe {
     width: 100%;
     margin-bottom: 15px;
     display: block;
     cursor: pointer;
 }
 
+section.CONTENTGRID-nomargin video {
+    width: 100%;
+    margin-bottom: 15px;
+padding:0px;
+    cursor: pointer;
+    transition: scale 0.7s cubic-bezier(0,.91,0,.99);
+}
+
+section.CONTENTGRID-nomargin video:hover {
+   scale:105%
+}
+
 section.CONTENTGRID-2 {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 15px;
+    align-items:start;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+
+    section.CONTENTGRID-2 video{
+        width: 100%;
+        height: auto;
+        display: block;
+        padding: 0px;
+        cursor: pointer;
+        transition: scale 0.7s cubic-bezier(0,.91,0,.99);
+    }
+
+
+section.CONTENTGRID-2 video:hover{
+        scale: 105%;
+    }
+
+section.CONTENTGRID-2-VIMEO {
     text-decoration: none;
     display: grid;
     grid-template-columns: repeat(2, minmax(500px, 1fr));
@@ -195,7 +280,9 @@ section.CONTENTGRID-2 {
     padding-right: 16px;
 }
 
-section.CONTENTGRID-2 iframe {
+
+
+section.CONTENTGRID-2-VIMEO iframe {
     width: 100%;
     height: 300px;
     margin-bottom: 15px;
@@ -209,10 +296,13 @@ section.CONTENT {
     display: flex;
     flex-direction: column;
     gap:10px;
-    margin-top: -12px;
+    margin-top:auto;
+    margin-bottom: 12px;
 }
 
-section.CONTENT img {
+section.CONTENT video, img {
+    display: flex;
+    cursor:pointer;
     margin-left: auto;
     margin-right: auto;
     padding-right: 16px;
@@ -220,17 +310,15 @@ section.CONTENT img {
     max-width: 1100px;
     justify-content: center;
     align-items: start;
+    transition: scale 0.7s cubic-bezier(0,.91,0,.99);
 }
 
-section.end video{
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: 16px;
-    padding-left: 16px;
-    max-width: 1100px;
-    justify-content: center;
-    align-items: start;
+
+section.CONTENT video:hover {
+    scale:105%;
 }
+
+
 
 
 
@@ -241,6 +329,18 @@ section.end video{
     margin-right: auto;
     padding-left: 16px;
     padding-right: 16px;
+}
+
+.TITULO-PROYECTO {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1100px;
+        margin-left: auto;
+        gap:40px;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
 }
 
 /*content grid illustration*/
@@ -272,6 +372,7 @@ section.CONTENTGRID-ILLUSTRATION .columna3 {
 
 section.CONTENTGRID-ILLUSTRATION img, video {
     width: 100%;
+    padding: 0px;
     height: auto;
     display: block;
     cursor: pointer;
@@ -331,6 +432,8 @@ section.CONTENTGRID > a:active {
     color: inherit;
     display: block;
 }
+
+
 
 /* Ensure links inside project tiles are not underlined and inherit color */
 div.tile-project a,
@@ -525,6 +628,14 @@ section.BOTONESBOTTOM .LinkedIn {
 }
 
 /* Swap PNGs on hover (match current HTML classes) */
+
+section.BOTONESBOTTOM img {
+    width: 20px;
+    height: auto;
+    padding: 0px;
+    padding-bottom: 3px;
+
+}
 section.BOTONESBOTTOM .IG a img {
     content: url('../img/buttons/buttonIG.webp');
 }
@@ -549,8 +660,8 @@ section.BOTONESBOTTOM .LinkedIn a:hover img {
 
 #ending-symbol:hover {
     color:var(--NARANJA1);
-
 }
+
 
 div.totop:hover {
     scale:110%;
@@ -577,6 +688,38 @@ div.totop {
     }
 
 
+#nextproject-symbol {
+    
+    text-decoration: none;
+    color:var(--AZUL1);
+    font-size: 30px;
+    font-weight: 300;
+    transition: all 0.7s cubic-bezier(0,.91,0,.99);
+}
+
+#nextproject-symbol:hover {
+    color:var(--NARANJA1);
+}
+
+div.next-project:hover {
+    scale:110%;
+    transform: translateX(5px);
+}
+
+div.next-project {
+    transition: all 0.7s cubic-bezier(0,.91,0,.99);
+}
+
+div.previous-project:hover {
+    scale:110%;
+    transform: translateX(-5px);
+}
+
+div.previous-project {
+    transition: all 0.7s cubic-bezier(0,.91,0,.99);
+}
+
+
 
 /* Lightbox overlay */
 .lightbox {
@@ -594,7 +737,20 @@ div.totop {
 .lightbox.open {
     display: flex;
 }
+
+
+
 .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    cursor: zoom-out;
+}
+
+#lightbox-video-player {
     max-width: 90vw;
     max-height: 90vh;
     width: auto;
@@ -623,30 +779,29 @@ div.totop {
         
 
     
-    section.CONTENTGRID-2 {
+    section.CONTENTGRID-2-VIMEO {
         
         grid-template-columns: repeat(2, minmax(300px, 1fr));
         max-width: 1000px;
        
     }
     
-    section.CONTENTGRID-2 iframe {
+    section.CONTENTGRID-2-VIMEO iframe {
         height: 200px;
      
     }
     
     section.CONTENT img {
         max-width: 100%;
-       
     }
- 
+
     
     
 }
 @media (max-width: 640px) {
 
     html,body {
-        background-size: 290% 80%;
+        background-size: 400% 80%;
     }
     section.HEADER img {
         height: 10.5vh;
@@ -661,6 +816,11 @@ div.totop {
     section.CONTENTGRID .columna2,
     section.CONTENTGRID .columna3 {
         flex: 1 1 calc(25% - 7.5px);  
+    }
+
+    section.CONTENTGRID-2 {
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        gap: 3px;
     }
 
     section.CONTENTGRID-ILLUSTRATION {
@@ -707,8 +867,7 @@ div.totop {
     #h1-2 {
         margin-top: -20px;
         font-size: 15px;
-
-           }    
+     }    
     
     
     #h2-2{
@@ -724,6 +883,11 @@ div.totop {
     #text-2-white{
         font-size: 14px;
        
+    }
+
+    #nextproject-symbol {
+        font-size: 20px;
+        margin-top:-20px;
     }
     
     section.CONTENTGRID-nomargin {
@@ -741,16 +905,24 @@ div.totop {
     }
 
     
-    section.CONTENTGRID-2 {
+    section.CONTENTGRID-2-VIMEO {
         
         grid-template-columns: repeat(1, minmax(300px, 1fr));       
     }
     
-    section.CONTENTGRID-2 iframe {
+    section.CONTENTGRID-2-VIMEO iframe {
         height: 200px;
-     
-    }
-    
-    
+ }
+
+ section.COLUMNAS {
+    gap: 3px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
     }
   

@@ -18,15 +18,23 @@
         <div data-include="includes/nav.html"></div>
 
         <div class="intro">
+          <section class="TITULO-PROYECTO"> 
+            <div class="previous-project">
+              <a id="nextproject-symbol" href=""><</a>
+            </div>
+            <a id="h1-2" href="PROJ-02-NEDGIA.html"> Nedgia TV commercials (2024-2025)</a>
+            <div class="next-project">
+                <a id="nextproject-symbol" href="PROJ-03-LOSS.html">></a>
+              </div>
+           </section>
           <section class="container"> 
            <div class="TEXTO1"> 
-              <a id="h1-2" href="PROJ-02-NEDGIA.html"> Nedgia TV commercials (2024-2025)</a>
               <p id="h2-2"> Direction, storyboarding, visual development and lead animation</p>
-              <p id="text-2">From 2024 to 2025 I had the chance to direct three TV spots for Nedgia while working at Linkvids. The assignment was to turn the three scripts into visual form while following the already established style of the brand. Here are the three final videos and a look behind the scenes of the process:</p>
+              <p id="text-2">From 2024 to 2025 I had the chance to direct three TV spots for Nedgia while working at Linkvids. BBDO trusted us to turn three scripts into its visual form while following the already established style of the brand. Here are the three final videos and a look of the process behind the scenes:</p>
            </div>
           </section>
 
-          <section id="PROJ-02-NEDGIA contentgrid" class="CONTENTGRID-nomargin">
+          <section class="CONTENTGRID-nomargin">
             <div class="NEDGIA-EMBED">
               <iframe src="https://www.youtube.com/embed/1ZmMFvQlrq8?si=7Se0fOZ1Va-WQWxy" width="252" height="280"></iframe>
             </div>
@@ -41,7 +49,7 @@
           </div>
           
           <div class="anim">
-              <section id="PROJ-02-NEDGIA contentgrid" class="CONTENTGRID-nomargin">
+              <section class="CONTENTGRID-nomargin">
                 <div class="NEDGIA-EMBED">
                     <video
                     muted
@@ -80,7 +88,7 @@
               </section>
                  <section class="container"> 
                   <div class="TEXTO1"> 
-                    <p id="text-2-white"> I was the animator supervisor of the team that worked on each ad, but luckily I still got to do my own shots. Some of them are above. Below, some of the sketches and styleframes I did for designing the characters and backgrounds of each piece.</p>
+                    <p id="text-2-white"> I was the <b>animator supervisor</b> of the team that worked on each ad, but luckily I still got to do my own shots. Some of them are above. Below, some of the <b> sketches and styleframes I did for designing the characters and backgrounds of each piece.</b></p>
                </section>
             </div>
 
@@ -97,17 +105,17 @@
             <div class="storyboard">
               <section class="container"> 
                 <div class="TEXTO1"> 
-                <p id="text-2-white"> Designing the shots and defining the visual storytelling for each script was the most rewarding and thrilling part of the process. So many ideas had to be conveyed in 20 seconds, which lead to a lot of variations and options. Above are the final storyboard and animatic I did for the last spot.</p>
+                <p id="text-2-white"> Designing the shots and defining the visual storytelling for each script was the most rewarding and thrilling part of the process. So many ideas had to be conveyed in 20 seconds, which lead to a lot of variations and options. <b>Below are the final storyboard and animatic I did for the last spot. </b></p>
                 </div>
              </section>
             
-              <section class="CONTENTGRID-2">
+              <section class="CONTENTGRID-2-VIMEO">
                 <div class="VIMEO-NEDGIA"><iframe src="https://player.vimeo.com/video/1130508358?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" ></iframe></div>
                 <div class="VIMEO-NEDGIA"><iframe src="https://player.vimeo.com/video/1130508379?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="NEDGIA-EXPEDICION_ANIMATIC" ></iframe></div>
               </section>
                </div>
 
-          <section class="end">
+          <section class="CONTENT">
             <video
             muted
             autoplay
@@ -120,7 +128,7 @@
           </section>
           <section class="container"> 
             <div class="TEXTO1"> 
-            <p id="text-2-white"> That's it! Not much left to see here... maybe wanna try browsing to another project?</p>
+            <p id="text-2-white"> That's it! Not much left to see here... maybe want to try browsing to another project?</p>
             <div class="totop">
               <a id="ending-symbol" href="#top">.·.·.</a>
             </div>
@@ -146,45 +154,79 @@
 
         <div data-include="includes/botonesbottom.html"></div>
 
-        <!-- Lightbox markup -->
-        <div class="lightbox" id="lightbox" aria-hidden="true">
-          <img id="lightbox-image" alt="Expanded image" />
+      
+        <!-- Lightbox para videos -->
+        <div class="lightbox" id="lightbox-video" aria-hidden="true">
+          <video id="lightbox-video-player" autoplay loop muted playsinline></video>
         </div>
 
         <script>
-          (function(){
-            const grid = document.querySelector('section.CONTENTGRID');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-image');
-            if (!grid || !lightbox || !lightboxImg) return;
 
+          (function() {
+            const grid = document.querySelector('div.anim');
+            const lightbox = document.getElementById('lightbox-video');
+            const lightboxVideo = document.getElementById('lightbox-video-player');
+          
+            if (!grid || !lightbox || !lightboxVideo) {
+              console.error("❌ No se encontró el grid o el lightbox en el DOM");
+              return;
+            }
+          
+            console.log("✅ Script cargado correctamente");
+          
             grid.addEventListener('click', (e) => {
-              const img = e.target.closest('img');
-              if (!img) return;
-              lightboxImg.src = img.getAttribute('data-full') || img.src;
+
+              const video = e.target.closest('video');
+              if (!video) {
+                return;
+              }
+          
+              const source = video.querySelector('source');
+              if (!source) {
+                console.log("❌ No se encontró la etiqueta <source> dentro del video");
+                return;
+              }
+          
+              console.log("🎬 Abriendo video:", source.src);
+          
+              // Mostrar lightbox
+              lightboxVideo.src = source.src;
               lightbox.classList.add('open');
               lightbox.setAttribute('aria-hidden', 'false');
               document.body.style.overflow = 'hidden';
+              lightboxVideo.play().catch(err => console.warn("Autoplay bloqueado:", err));
             });
-
+          
             const close = () => {
               lightbox.classList.remove('open');
               lightbox.setAttribute('aria-hidden', 'true');
-              lightboxImg.src = '';
+              lightboxVideo.pause();
+              lightboxVideo.src = '';
               document.body.style.overflow = '';
             };
-
+          
+            // Cerrar al hacer clic fuera del video
             lightbox.addEventListener('click', (e) => {
-              if (e.target === lightbox || e.target === lightboxImg) {
+              if (e.target === lightbox) {
+                console.log("🧹 Cerrando lightbox");
                 close();
               }
             });
+          
+            // Cerrar con la tecla ESC
             window.addEventListener('keydown', (e) => {
-              if (e.key === 'Escape' && lightbox.classList.contains('open')) close();
+              if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+                console.log("🚪 Cerrando con ESC");
+                close();
+              }
             });
           })();
-        </script>
-        <script src="js/includes.js"></script>
+          </script>
+          
+
+
+          <script src="js/includes.js"></script>
+
 
         <!-- Background scroll effect -->
         <script>
