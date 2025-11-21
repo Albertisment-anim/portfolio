@@ -164,6 +164,7 @@ section.CONTENTGRID video:hover, img:hover {
 }
 
 
+
 section.COLUMNAS {
     text-decoration: none;
     display: flex;
@@ -336,6 +337,17 @@ section.CONTENT video:hover {
     cursor:default;
 }
 
+section.CONTENT iframe {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+    height:600px;
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: center;
+    align-items: start;
+}
 
 
 
@@ -810,6 +822,11 @@ div.previous-project {
         max-width: 100%;
     }
 
+    section.CONTENT iframe {
+          width: 800px;
+          height:430px;
+    }
+
     
     
 }
@@ -833,6 +850,8 @@ div.previous-project {
         flex: 1 1 calc(25% - 7.5px);  
     }
 
+    
+
     section.CONTENTGRID-2 {
         grid-template-columns: repeat(2, minmax(100px, 1fr));
         gap: 3px;
@@ -848,6 +867,11 @@ div.previous-project {
         flex: 1 1 calc(25% - 7.5px); 
         gap:3px; 
     }
+
+    section.CONTENT iframe {
+        width:390px;
+        height:200px;
+  }
 
     nav {
         font-size: 12px;
