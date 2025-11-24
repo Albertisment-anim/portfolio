@@ -442,5 +442,108 @@
         { passive: true }
       );
     </script>
+
+    <!-- Text color scroll effect for #text-2 -->
+    <script>
+      (function() {
+        // ===== CONFIGURACIÓN - Ajusta estos valores para controlar el efecto =====
+        const config = {
+          // Color inicial (azul)
+          startColor: { r: 0, g: 112, b: 255 }, // #0070FF (var(--AZUL1))
+          // Color final (blanco)
+          endColor: { r: 246, g: 246, b: 246 }, // #f6f6f6 (var(--BLANCO))
+          // Punto de inicio de la transición (0 = cuando el elemento entra en viewport, 1 = cuando sale)
+          startPoint: 0.75, // Empieza a cambiar cuando el elemento entra en pantalla
+          // Punto final de la transición (0-1)
+          endPoint: 1, // Termina de cambiar cuando el elemento está a mitad de pantalla
+          // Velocidad del cambio (1 = normal, 2 = más rápido, 0.5 = más lento)
+          speed: 1
+        };
+        // =========================================================================
+
+        const textElement = document.getElementById('text-2');
+        if (!textElement) {
+          console.warn('Elemento #text-2 no encontrado');
+          return;
+        }
+
+        let ticking = false;
+
+        // Función para convertir RGB a hexadecimal
+        function rgbToHex(r, g, b) {
+          return '#' + [r, g, b].map(x => {
+            const hex = Math.round(x).toString(16);
+            return hex.length === 1 ? '0' + hex : hex;
+          }).join('');
+        }
+
+        // Función para interpolar entre dos colores
+        function interpolateColor(color1, color2, factor) {
+          const r = color1.r + (color2.r - color1.r) * factor;
+          const g = color1.g + (color2.g - color1.g) * factor;
+          const b = color1.b + (color2.b - color1.b) * factor;
+          return { r, g, b };
+        }
+
+        // Función para actualizar el color basado en el scroll
+        function updateTextColor() {
+          const rect = textElement.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          
+          // Calcular la posición relativa del elemento en la ventana
+          // 0 = elemento en la parte superior de la ventana
+          // 1 = elemento en la parte inferior de la ventana
+          const elementTop = rect.top;
+          const elementHeight = rect.height;
+          const viewportProgress = Math.max(0, Math.min(1, 
+            (windowHeight - elementTop) / (windowHeight + elementHeight)
+          ));
+
+          // Aplicar los puntos de inicio y fin configurados
+          let normalizedProgress = 0;
+          if (viewportProgress < config.startPoint) {
+            // Antes del punto de inicio: color inicial
+            normalizedProgress = 0;
+          } else if (viewportProgress > config.endPoint) {
+            // Después del punto final: color final
+            normalizedProgress = 1;
+          } else {
+            // Entre startPoint y endPoint: interpolar
+            normalizedProgress = (viewportProgress - config.startPoint) / (config.endPoint - config.startPoint);
+          }
+
+          // Aplicar velocidad
+          const adjustedProgress = Math.max(0, Math.min(1, normalizedProgress * config.speed));
+
+          // Interpolar el color
+          const currentColor = interpolateColor(config.startColor, config.endColor, adjustedProgress);
+          
+          // Aplicar el color al elemento
+          textElement.style.color = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
+          
+          ticking = false;
+        }
+
+        // Establecer color inicial al cargar la página
+        textElement.style.color = rgbToHex(config.startColor.r, config.startColor.g, config.startColor.b);
+
+        // Escuchar eventos de scroll
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            requestAnimationFrame(updateTextColor);
+            ticking = true;
+          }
+        }, { passive: true });
+
+        // Actualizar al cargar la página (después de establecer el color inicial)
+        window.addEventListener('load', updateTextColor);
+        // También actualizar después de que el DOM esté listo
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', updateTextColor);
+        } else {
+          updateTextColor();
+        }
+      })();
+    </script>
   </body>
 </html>
