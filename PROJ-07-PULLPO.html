@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Albertisment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon/favicon32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon/favicon16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/favicon32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/Albertisment_style.css" />
+  </head>
+
+  <body>
+    <div data-include="includes/header.html"></div>
+    <div data-include="includes/nav.html"></div>
+
+    <div class="intro">
+      <section class="TITULO-PROYECTO">
+        <div class="previous-project">
+          <a id="nextproject-symbol" href="PROJ-06-OMI-GRANADA.html"><</a>
+        </div>
+        <a id="h1-2" href="PROJ-07-PULLPO.html"> Pullpo (2023)</a>
+        <div class="next-project">
+          <a id="nextproject-symbol" href="">></a>
+        </div>
+      </section>
+      <section class="container">
+        <div class="TEXTO1">
+          <p id="h2-2">Graphic design and animation</p>
+          <p id="text-2">
+            In 2022 and 2023 I got the chance to work alongside Pullpo's
+            co-founder, Marco Patiño, to bring his vision to life.
+            <b>
+              I designed the logo for the brand, and later on, I animated a
+              teaser video for the launch of the product.</b
+            >
+            This video was scripted, storyboarded, designed and animated by me.
+            Here is the final result:
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="anim">
+      <section class="CONTENT">
+        <div>
+          <iframe
+            src="https://www.youtube.com/embed/_FsZy6-F3ys?si=fW5YVElpYwhKJ23u"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <section class="container">
+          <div>
+            <p id="text-2-white">
+              The video was animated entirely with After Effects, while the
+              storyboard was done in Blender.
+              <b>Check out the process behind the logo below. </b> It involved
+              drawing a lot of octopuses, sketching even more thumbnails and a
+              long path of iterations, trial and error and consulting with
+              Marco.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <section class="CONTENT">
+        <div>
+          <img src="img/projects/07-PULLPO/pullpo-4.webp" />
+        </div>
+        <div>
+          <img src="img/projects/07-PULLPO/pullpo-1.webp" />
+        </div>
+        <div>
+          <img src="img/projects/07-PULLPO/pullpo-2.webp" />
+        </div>
+        <div>
+          <img src="img/projects/07-PULLPO/pullpo-3.webp" />
+        </div>
+      </section>
+      <section class="container">
+        <div>
+          <p id="text-2-white">
+            The most demanding part was, however, giving life to the final logo,
+            wich involved
+            <b
+              >designing the motion with hand-drawn animation, rigging the
+              vectorized design and a lot of frame by frame tweaking.</b
+            >
+            Worth it though, isn't it cute?
+          </p>
+        </div>
+      </section>
+      <section class="CONTENT">
+        <div>
+          <video
+            id="pullpo-gif"
+            autoplay
+            loop
+            mute
+            src="img/projects/07-PULLPO/pullpo gif2.webm"
+          ></video>
+        </div>
+      </section>
+    </div>
+
+    <section class="container">
+      <div class="TEXTO1">
+        <p id="text-2-white">
+          That's it! Not much left to see here... maybe want to try browsing to
+          another project?
+        </p>
+        <div class="totop">
+          <a id="ending-symbol" href="#top">.·.·.</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="ABOUTME" class="ABOUT">
+      <div class="ABOUTMETEXTO container">
+        <p>Nice to meet you! My name is Alberto.</p>
+
+        <p>
+          These are some of the projects I have worked on for the last 5 years.
+          Some are work for clients and some are collaborative with friends.
+          Every one of them has lead me to develop new skills and to get to know
+          new sides of myself, which is scary and exciting at the same time… and
+          also kind of addictive. Oh well! I guess I am in this stuff for life
+          now… I hope I can continue learning and creating the best way I know:
+          surrounded by people. If you want to see more of my work, check rest
+          of this portfolio.
+        </p>
+
+        <p>I hope we get to work together sometime!</p>
+      </div>
+      <div class="ABOUTMEANIMVISUAL">
+        <img
+          src="img/anim/ANIMVISUAL-TEST-BLACK_V2.png"
+          alt="albertisment animando"
+        />
+      </div>
+    </section>
+
+    <div data-include="includes/botonesbottom.html"></div>
+
+    <!-- Lightbox para videos -->
+    <div class="lightbox" id="lightbox-video" aria-hidden="true">
+      <video id="lightbox-video-player" autoplay loop muted playsinline></video>
+    </div>
+
+    <script>
+      (function () {
+        const grid = document.querySelector("div.anim");
+        const lightbox = document.getElementById("lightbox-video");
+        const lightboxVideo = document.getElementById("lightbox-video-player");
+
+        if (!grid || !lightbox || !lightboxVideo) {
+          console.error("❌ No se encontró el grid o el lightbox en el DOM");
+          return;
+        }
+
+        console.log("✅ Script cargado correctamente");
+
+        grid.addEventListener("click", (e) => {
+          const video = e.target.closest("video");
+          if (!video) {
+            return;
+          }
+
+          const source = video.querySelector("source");
+          if (!source) {
+            console.log(
+              "❌ No se encontró la etiqueta <source> dentro del video"
+            );
+            return;
+          }
+
+          console.log("🎬 Abriendo video:", source.src);
+
+          // Mostrar lightbox
+          lightboxVideo.src = source.src;
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          lightboxVideo
+            .play()
+            .catch((err) => console.warn("Autoplay bloqueado:", err));
+        });
+
+        const close = () => {
+          lightbox.classList.remove("open");
+          lightbox.setAttribute("aria-hidden", "true");
+          lightboxVideo.pause();
+          lightboxVideo.src = "";
+          document.body.style.overflow = "";
+        };
+
+        // Cerrar al hacer clic fuera del video
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) {
+            console.log("🧹 Cerrando lightbox");
+            close();
+          }
+        });
+
+        // Cerrar con la tecla ESC
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && lightbox.classList.contains("open")) {
+            console.log("🚪 Cerrando con ESC");
+            close();
+          }
+        });
+      })();
+    </script>
+
+    <script src="js/includes.js"></script>
+
+    <!-- Background scroll effect -->
+    <script>
+      var ticking = false;
+
+      function updateBackground() {
+        const scrollY = window.scrollY;
+        const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
+        document.body.style.backgroundPosition = `center ${-moveY}px`;
+        ticking = false;
+      }
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(updateBackground);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+    </script>
+
+    <!-- Lightbox markup -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <img id="lightbox-image" alt="Expanded image" />
+    </div>
+
+    <script>
+      (function () {
+        const grid = document.querySelector("div.anim");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-image");
+        if (!grid || !lightbox || !lightboxImg) return;
+
+        grid.addEventListener("click", (e) => {
+          const img = e.target.closest("img");
+          if (!img) return;
+          lightboxImg.src = img.getAttribute("data-full") || img.src;
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        });
+
+        const close = () => {
+          lightbox.classList.remove("open");
+          lightbox.setAttribute("aria-hidden", "true");
+          lightboxImg.src = "";
+          document.body.style.overflow = "";
+        };
+
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox || e.target === lightboxImg) {
+            close();
+          }
+        });
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && lightbox.classList.contains("open"))
+            close();
+        });
+      })();
+    </script>
+    <script src="js/includes.js"></script>
+
+    <!-- Background scroll effect -->
+    <script>
+      let ticking = false;
+
+      function updateBackground() {
+        const scrollY = window.scrollY;
+        const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
+        document.body.style.backgroundPosition = `center ${-moveY}px`;
+        ticking = false;
+      }
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(updateBackground);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+    </script>
+
+    <!-- Text color scroll effect for #text-2 -->
+    <script>
+      (function () {
+        // ===== CONFIGURACIÓN - Ajusta estos valores para controlar el efecto =====
+        const config = {
+          // Color inicial (azul)
+          startColor: { r: 0, g: 112, b: 255 }, // #0070FF (var(--AZUL1))
+          // Color final (blanco)
+          endColor: { r: 246, g: 246, b: 246 }, // #f6f6f6 (var(--BLANCO))
+          // Punto de inicio de la transición (0 = cuando el elemento entra en viewport, 1 = cuando sale)
+          startPoint: 0.75, // Empieza a cambiar cuando el elemento entra en pantalla
+          // Punto final de la transición (0-1)
+          endPoint: 1, // Termina de cambiar cuando el elemento está a mitad de pantalla
+          // Velocidad del cambio (1 = normal, 2 = más rápido, 0.5 = más lento)
+          speed: 1,
+        };
+        // =========================================================================
+
+        const textElement = document.getElementById("text-2");
+        if (!textElement) {
+          console.warn("Elemento #text-2 no encontrado");
+          return;
+        }
+
+        let ticking = false;
+
+        // Función para convertir RGB a hexadecimal
+        function rgbToHex(r, g, b) {
+          return (
+            "#" +
+            [r, g, b]
+              .map((x) => {
+                const hex = Math.round(x).toString(16);
+                return hex.length === 1 ? "0" + hex : hex;
+              })
+              .join("")
+          );
+        }
+
+        // Función para interpolar entre dos colores
+        function interpolateColor(color1, color2, factor) {
+          const r = color1.r + (color2.r - color1.r) * factor;
+          const g = color1.g + (color2.g - color1.g) * factor;
+          const b = color1.b + (color2.b - color1.b) * factor;
+          return { r, g, b };
+        }
+
+        // Función para actualizar el color basado en el scroll
+        function updateTextColor() {
+          const rect = textElement.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          // Calcular la posición relativa del elemento en la ventana
+          // 0 = elemento en la parte superior de la ventana
+          // 1 = elemento en la parte inferior de la ventana
+          const elementTop = rect.top;
+          const elementHeight = rect.height;
+          const viewportProgress = Math.max(
+            0,
+            Math.min(
+              1,
+              (windowHeight - elementTop) / (windowHeight + elementHeight)
+            )
+          );
+
+          // Aplicar los puntos de inicio y fin configurados
+          let normalizedProgress = 0;
+          if (viewportProgress < config.startPoint) {
+            // Antes del punto de inicio: color inicial
+            normalizedProgress = 0;
+          } else if (viewportProgress > config.endPoint) {
+            // Después del punto final: color final
+            normalizedProgress = 1;
+          } else {
+            // Entre startPoint y endPoint: interpolar
+            normalizedProgress =
+              (viewportProgress - config.startPoint) /
+              (config.endPoint - config.startPoint);
+          }
+
+          // Aplicar velocidad
+          const adjustedProgress = Math.max(
+            0,
+            Math.min(1, normalizedProgress * config.speed)
+          );
+
+          // Interpolar el color
+          const currentColor = interpolateColor(
+            config.startColor,
+            config.endColor,
+            adjustedProgress
+          );
+
+          // Aplicar el color al elemento
+          textElement.style.color = rgbToHex(
+            currentColor.r,
+            currentColor.g,
+            currentColor.b
+          );
+
+          ticking = false;
+        }
+
+        // Establecer color inicial al cargar la página
+        textElement.style.color = rgbToHex(
+          config.startColor.r,
+          config.startColor.g,
+          config.startColor.b
+        );
+
+        // Escuchar eventos de scroll
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateTextColor);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+
+        // Actualizar al cargar la página (después de establecer el color inicial)
+        window.addEventListener("load", updateTextColor);
+        // También actualizar después de que el DOM esté listo
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", updateTextColor);
+        } else {
+          updateTextColor();
+        }
+      })();
+    </script>
+  </body>
+</html>
