@@ -248,7 +248,7 @@ section.CONTENTGRID-2 {
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 12px;
+    margin-top: 0px;
     margin-bottom: 12px;
     padding-left: 16px;
     padding-right: 16px;
@@ -462,7 +462,7 @@ div.tile-project {
 }
 
 #pullpo-gif{
-    width:12vw;
+    height:22vh;
 }
 
 /* Remove underline on links wrapping project tiles */
