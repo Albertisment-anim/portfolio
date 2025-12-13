@@ -51,6 +51,7 @@
   <body>
     <div data-include="includes/header.html"></div>
     <div data-include="includes/nav.html"></div>
+
     <section id="ANIMATION contentgrid" class="CONTENTGRID">
       <div class="test">
         <img
@@ -213,6 +214,66 @@
         },
         { passive: true }
       );
+    </script>
+
+    <!-- Hide side buttons when scrolled to bottom -->
+    <script>
+      (function () {
+        // Wait for includes to load before initializing
+        function initSideButtonsScript() {
+          const sideButtons = document.querySelector("section.BOTONES-SIDE");
+          if (!sideButtons) {
+            // If element not found, try again after a short delay
+            setTimeout(initSideButtonsScript, 100);
+            return;
+          }
+
+          let ticking = false;
+
+          function checkScrollPosition() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+
+            // Check if user is at or near the bottom (within 100px)
+            const isAtBottom = scrollTop + windowHeight >= documentHeight - 100;
+
+            if (isAtBottom) {
+              sideButtons.classList.add("hide-bottom");
+            } else {
+              sideButtons.classList.remove("hide-bottom");
+            }
+
+            ticking = false;
+          }
+
+          window.addEventListener(
+            "scroll",
+            () => {
+              if (!ticking) {
+                requestAnimationFrame(checkScrollPosition);
+                ticking = true;
+              }
+            },
+            { passive: true }
+          );
+
+          // Check on initialization in case page is already at bottom
+          checkScrollPosition();
+        }
+
+        // Start checking once DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            // Wait a bit more for includes to load
+            setTimeout(initSideButtonsScript, 200);
+          });
+        } else {
+          // DOM already loaded, but includes might still be loading
+          setTimeout(initSideButtonsScript, 200);
+        }
+      })();
     </script>
   </body>
 </html>

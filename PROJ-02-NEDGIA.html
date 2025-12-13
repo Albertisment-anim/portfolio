@@ -320,7 +320,7 @@
 
     <!-- Text color scroll effect for #text-2 -->
     <script>
-      (function() {
+      (function () {
         // ===== CONFIGURACIÓN - Ajusta estos valores para controlar el efecto =====
         const config = {
           // Color inicial (azul)
@@ -332,13 +332,13 @@
           // Punto final de la transición (0-1)
           endPoint: 1, // Termina de cambiar cuando el elemento está a mitad de pantalla
           // Velocidad del cambio (1 = normal, 2 = más rápido, 0.5 = más lento)
-          speed: 1
+          speed: 1,
         };
         // =========================================================================
 
-        const textElement = document.getElementById('text-2');
+        const textElement = document.getElementById("text-2");
         if (!textElement) {
-          console.warn('Elemento #text-2 no encontrado');
+          console.warn("Elemento #text-2 no encontrado");
           return;
         }
 
@@ -346,10 +346,15 @@
 
         // Función para convertir RGB a hexadecimal
         function rgbToHex(r, g, b) {
-          return '#' + [r, g, b].map(x => {
-            const hex = Math.round(x).toString(16);
-            return hex.length === 1 ? '0' + hex : hex;
-          }).join('');
+          return (
+            "#" +
+            [r, g, b]
+              .map((x) => {
+                const hex = Math.round(x).toString(16);
+                return hex.length === 1 ? "0" + hex : hex;
+              })
+              .join("")
+          );
         }
 
         // Función para interpolar entre dos colores
@@ -364,15 +369,19 @@
         function updateTextColor() {
           const rect = textElement.getBoundingClientRect();
           const windowHeight = window.innerHeight;
-          
+
           // Calcular la posición relativa del elemento en la ventana
           // 0 = elemento en la parte superior de la ventana
           // 1 = elemento en la parte inferior de la ventana
           const elementTop = rect.top;
           const elementHeight = rect.height;
-          const viewportProgress = Math.max(0, Math.min(1, 
-            (windowHeight - elementTop) / (windowHeight + elementHeight)
-          ));
+          const viewportProgress = Math.max(
+            0,
+            Math.min(
+              1,
+              (windowHeight - elementTop) / (windowHeight + elementHeight)
+            )
+          );
 
           // Aplicar los puntos de inicio y fin configurados
           let normalizedProgress = 0;
@@ -384,39 +393,120 @@
             normalizedProgress = 1;
           } else {
             // Entre startPoint y endPoint: interpolar
-            normalizedProgress = (viewportProgress - config.startPoint) / (config.endPoint - config.startPoint);
+            normalizedProgress =
+              (viewportProgress - config.startPoint) /
+              (config.endPoint - config.startPoint);
           }
 
           // Aplicar velocidad
-          const adjustedProgress = Math.max(0, Math.min(1, normalizedProgress * config.speed));
+          const adjustedProgress = Math.max(
+            0,
+            Math.min(1, normalizedProgress * config.speed)
+          );
 
           // Interpolar el color
-          const currentColor = interpolateColor(config.startColor, config.endColor, adjustedProgress);
-          
+          const currentColor = interpolateColor(
+            config.startColor,
+            config.endColor,
+            adjustedProgress
+          );
+
           // Aplicar el color al elemento
-          textElement.style.color = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
-          
+          textElement.style.color = rgbToHex(
+            currentColor.r,
+            currentColor.g,
+            currentColor.b
+          );
+
           ticking = false;
         }
 
         // Establecer color inicial al cargar la página
-        textElement.style.color = rgbToHex(config.startColor.r, config.startColor.g, config.startColor.b);
+        textElement.style.color = rgbToHex(
+          config.startColor.r,
+          config.startColor.g,
+          config.startColor.b
+        );
 
         // Escuchar eventos de scroll
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            requestAnimationFrame(updateTextColor);
-            ticking = true;
-          }
-        }, { passive: true });
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateTextColor);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
 
         // Actualizar al cargar la página (después de establecer el color inicial)
-        window.addEventListener('load', updateTextColor);
+        window.addEventListener("load", updateTextColor);
         // También actualizar después de que el DOM esté listo
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', updateTextColor);
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", updateTextColor);
         } else {
           updateTextColor();
+        }
+      })();
+    </script>
+
+    <!-- Hide side buttons when scrolled to bottom -->
+    <script>
+      (function () {
+        // Wait for includes to load before initializing
+        function initSideButtonsScript() {
+          const sideButtons = document.querySelector("section.BOTONES-SIDE");
+          if (!sideButtons) {
+            // If element not found, try again after a short delay
+            setTimeout(initSideButtonsScript, 100);
+            return;
+          }
+
+          let ticking = false;
+
+          function checkScrollPosition() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+
+            // Check if user is at or near the bottom (within 100px)
+            const isAtBottom = scrollTop + windowHeight >= documentHeight - 100;
+
+            if (isAtBottom) {
+              sideButtons.classList.add("hide-bottom");
+            } else {
+              sideButtons.classList.remove("hide-bottom");
+            }
+
+            ticking = false;
+          }
+
+          window.addEventListener(
+            "scroll",
+            () => {
+              if (!ticking) {
+                requestAnimationFrame(checkScrollPosition);
+                ticking = true;
+              }
+            },
+            { passive: true }
+          );
+
+          // Check on initialization in case page is already at bottom
+          checkScrollPosition();
+        }
+
+        // Start checking once DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            // Wait a bit more for includes to load
+            setTimeout(initSideButtonsScript, 200);
+          });
+        } else {
+          // DOM already loaded, but includes might still be loading
+          setTimeout(initSideButtonsScript, 200);
         }
       })();
     </script>
