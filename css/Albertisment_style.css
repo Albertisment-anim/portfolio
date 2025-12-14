@@ -1090,8 +1090,9 @@ div.previous-project {
 
     html,body {
         background-image: url('BG_movil6.webp');
-        background-size:cover;
-        background-position: top;
+        background-size:100%;
+        
+   
     }
 }
   
