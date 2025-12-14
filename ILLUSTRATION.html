@@ -272,7 +272,7 @@
         const scrollY = window.scrollY;
         if (isMobile()) {
           // Mobile: speed 1, no offset (positive movement)
-          const moveY = scrollY * 1;
+          const moveY = scrollY * -1.2;
           document.body.style.backgroundPosition = `center ${moveY}px`;
         } else {
           // Desktop: speed 1.5, with offset (negative movement)
