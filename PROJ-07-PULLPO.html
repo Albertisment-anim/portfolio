@@ -121,6 +121,7 @@
             autoplay
             loop
             mute
+            playsinline
             src="img/projects/07-PULLPO/pullpo gif2.webm"
           ></video>
         </div>
@@ -240,25 +241,38 @@
 
     <!-- Background scroll effect -->
     <script>
-      var ticking = false;
-
-      function updateBackground() {
-        const scrollY = window.scrollY;
-        const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
-        document.body.style.backgroundPosition = `center ${-moveY}px`;
-        ticking = false;
+      // Check if device is mobile (you can adjust the breakpoint as needed)
+      function isMobile() {
+        return (
+          window.innerWidth <= 640 ||
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+        );
       }
 
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(updateBackground);
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
+      // Only enable parallax on desktop
+      if (!isMobile()) {
+        var ticking = false;
+
+        function updateBackground() {
+          const scrollY = window.scrollY;
+          const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
+          document.body.style.backgroundPosition = `center ${-moveY}px`;
+          ticking = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateBackground);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+      }
     </script>
 
     <!-- Lightbox markup -->
@@ -301,29 +315,6 @@
       })();
     </script>
     <script src="js/includes.js"></script>
-
-    <!-- Background scroll effect -->
-    <script>
-      let ticking = false;
-
-      function updateBackground() {
-        const scrollY = window.scrollY;
-        const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
-        document.body.style.backgroundPosition = `center ${-moveY}px`;
-        ticking = false;
-      }
-
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(updateBackground);
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
-    </script>
 
     <!-- Text color scroll effect for #text-2 -->
     <script>

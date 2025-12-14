@@ -88,7 +88,7 @@
     <div class="anim">
       <section class="CONTENTGRID-nomargin">
         <div class="NEDGIA-EMBED">
-          <video muted autoplay preload="auto" loop>
+          <video muted autoplay playsinline preload="auto" loop>
             <source
               src="img/projects/02-NEDGIA/anim/NED-ANIM-CIG.webm"
               type="video/webm"
@@ -98,7 +98,7 @@
         </div>
 
         <div class="NEDGIA-EMBED">
-          <video muted autoplay preload="auto" loop>
+          <video muted autoplay playsinline preload="auto" loop>
             <source
               src="img/projects/02-NEDGIA/anim/NED-ANIM-REG.webm"
               type="video/webm"
@@ -108,7 +108,7 @@
         </div>
 
         <div class="NEDGIA-EMBED">
-          <video muted autoplay preload="auto" loop>
+          <video muted autoplay playsinline playpreload="auto" loop>
             <source
               src="img/projects/02-NEDGIA/anim/NED-ANIM-EXP.webm"
               type="video/webm"
@@ -175,7 +175,7 @@
     </div>
 
     <section class="CONTENT">
-      <video id="nohover" muted autoplay preload="auto" loop>
+      <video id="nohover" muted autoplay playsinline preload="auto" loop>
         <source
           src="img/projects/02-NEDGIA/anim/02-NEDGIA-VACAS.webm"
           type="video/webm"
@@ -297,25 +297,38 @@
 
     <!-- Background scroll effect -->
     <script>
-      let ticking = false;
-
-      function updateBackground() {
-        const scrollY = window.scrollY;
-        const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
-        document.body.style.backgroundPosition = `center ${-moveY}px`;
-        ticking = false;
+      // Check if device is mobile (you can adjust the breakpoint as needed)
+      function isMobile() {
+        return (
+          window.innerWidth <= 640 ||
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+        );
       }
 
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(updateBackground);
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
+      // Only enable parallax on desktop
+      if (!isMobile()) {
+        let ticking = false;
+
+        function updateBackground() {
+          const scrollY = window.scrollY;
+          const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
+          document.body.style.backgroundPosition = `center ${-moveY}px`;
+          ticking = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateBackground);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+      }
     </script>
 
     <!-- Text color scroll effect for #text-2 -->
