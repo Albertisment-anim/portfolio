@@ -112,10 +112,16 @@
             id="aperitivo-logo"
             autoplay
             loop
-            mute
+            muted
             playsinline
-            src="img/projects/08-APETECE-APERITIVO/APE_ANIMLOGO_4x5_v01.webm"
-          ></video>
+            preload="auto"
+          >
+            <source
+              src="img/projects/08-APETECE-APERITIVO/APE_ANIMLOGO_4x5_v01.webm"
+              type="video/webm"
+            />
+            Your browser does not support the video tag
+          </video>
         </div>
       </section>
     </div>
@@ -249,7 +255,7 @@
         const scrollY = window.scrollY;
         if (isMobile()) {
           // Mobile: speed 1, no offset (positive movement)
-          const moveY = scrollY * -1.2;
+          const moveY = scrollY * -1.1;
           document.body.style.backgroundPosition = `center ${moveY}px`;
         } else {
           // Desktop: speed 1.5, with offset (negative movement)
