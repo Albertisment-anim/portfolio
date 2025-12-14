@@ -255,28 +255,32 @@
         );
       }
 
-      // Only enable parallax on desktop
-      if (!isMobile()) {
-        var ticking = false;
+      var ticking = false;
 
-        function updateBackground() {
-          const scrollY = window.scrollY;
-          const moveY = scrollY * 1.5; // Adjust speed (0.5 = half scroll speed)
+      function updateBackground() {
+        const scrollY = window.scrollY;
+        if (isMobile()) {
+          // Mobile: speed 1, no offset (positive movement)
+          const moveY = scrollY * 1;
+          document.body.style.backgroundPosition = `center ${moveY}px`;
+        } else {
+          // Desktop: speed 1.5, with offset (negative movement)
+          const moveY = scrollY * 1.5;
           document.body.style.backgroundPosition = `center ${-moveY}px`;
-          ticking = false;
         }
-
-        window.addEventListener(
-          "scroll",
-          () => {
-            if (!ticking) {
-              requestAnimationFrame(updateBackground);
-              ticking = true;
-            }
-          },
-          { passive: true }
-        );
+        ticking = false;
       }
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            requestAnimationFrame(updateBackground);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
     </script>
 
     <!-- Lightbox markup -->
