@@ -145,6 +145,9 @@
         if (!grid || !lightbox || !lightboxImg) return;
 
         grid.addEventListener("click", (e) => {
+          // Ignore clicks inside elements marked as nolightbox
+          if (e.target.closest('.nolightbox')) return;
+
           const img = e.target.closest("img");
           if (!img) return;
           lightboxImg.src = img.getAttribute("data-full") || img.src;

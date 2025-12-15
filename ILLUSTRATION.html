@@ -35,13 +35,14 @@
 
     <section id="ILLUSTRATION contentgrid" class="CONTENTGRID-ILLUSTRATION">
       <div class="columna1">
-        <div class="tile">
-          <img
-            src="img/illust/I01_OMIGRANADA.webp"
-            alt="ILLUSTRATION OMI GRANADA"
-            data-full="img/illust/HQ/I01_OMIGRANADA_HQ.webp"
-          />
+        <div class="nolightbox">
+          <a href="PROJ-06-OMI-GRANADA.html">
+            <img
+              src="img/illust/I01_OMIGRANADA.webp"
+              alt="ILLUSTRATION OMI GRANADA"
+          /></a>
         </div>
+
         <div class="tile">
           <img
             src="img/illust/I07-BCN.webp"
@@ -95,33 +96,31 @@
             data-full="img/illust/HQ/I02_SIRENA-LATA_HQ.webp"
           />
         </div>
-        <div class="tile">
-          <img
-            src="img/illust/I04-NATVENTAS.webp"
-            alt="ILLUSTRACION NATURGY VENTAS"
-            data-full="img/illust/HQ/I04-NATVENTAS_HQ.webp"
-          />
+        <div class="nolightbox">
+          <a href="PROJ-04-NATURGY.html">
+            <img
+              src="img/illust/I08-NATSOLAR.webp"
+              alt="ILLUSTRACION NATURGY SOLAR"
+          /></a>
         </div>
-        <div class="tile">
-          <img
-            src="img/illust/I08-NATSOLAR.webp"
-            alt="ILLUSTRATION NATURGY SOLAR"
-            data-full="img/illust/HQ/I08-NATSOLAR_HQ.webp"
-          />
+        <div class="nolightbox">
+          <a href="PROJ-04-NATURGY.html">
+            <img
+              src="img/illust/I04-NATVENTAS.webp"
+              alt="ILLUSTRATION NATURGY VENTAS"
+          /></a>
         </div>
-        <div class="tile">
-          <img
-            src="img/illust/I18-8M.webp"
-            alt="ILLUSTRATION 8m"
-            data-full="img/illust/HQ/I18-8M_HQ.webp"
-          />
+        <div class="nolightbox">
+          <a href="PROJ-11-LOQUELEO.html">
+            <img src="img/illust/I18-8M.webp" alt="ILLUSTRATION 8m"
+          /></a>
         </div>
-        <div class="tile">
-          <img
-            src="img/illust/I11-CUENTO1.webp"
-            alt="ILLUSTRATION BOOK COVER"
-            data-full="img/illust/HQ/I11-CUENTO1_HQ.webp"
-          />
+        <div class="nolightbox">
+          <a href="PROJ-10-LEGACYPUZZLE.html">
+            <img
+              src="img/illust/I11-CUENTO1.webp"
+              alt="ILLUSTRATION BOOK COVER"
+          /></a>
         </div>
         <div class="tile">
           <img
@@ -156,11 +155,13 @@
             />
           </div>
           <div class="tile small">
-            <img
-              src="img/illust/I06-STJORDI.webp"
-              alt="ILLUSTRATION STJORDI"
-              data-full="img/illust/HQ/I06-STJORDI_HQ.webp"
-            />
+            <div class="nolightbox">
+              <a href="PROJ-03-LOSS.html">
+                <img
+                  src="img/illust/I06-STJORDI.webp"
+                  alt="ILLUSTRATION STJORDI"
+              /></a>
+            </div>
           </div>
         </div>
         <div class="tile">
@@ -170,12 +171,10 @@
             data-full="img/illust/HQ/I09-GATOS_HQ.webp"
           />
         </div>
-        <div class="tile">
-          <img
-            src="img/illust/I15-CUENTO2.webp"
-            alt="ILLUSTRATION BOOK PAGE"
-            data-full="img/illust/HQ/I15-CUENTO2_HQ.webp"
-          />
+        <div class="nolightbox">
+          <a href="PROJ-10-LEGACYPUZZLE.html">
+            <img src="img/illust/I15-CUENTO2.webp" alt="ILLUSTRATION BOOK PAGE"
+          /></a>
         </div>
         <div class="tile">
           <img
@@ -226,6 +225,9 @@
         if (!grid || !lightbox || !lightboxImg) return;
 
         grid.addEventListener("click", (e) => {
+          // Ignore clicks inside elements marked as nolightbox
+          if (e.target.closest(".nolightbox")) return;
+
           const img = e.target.closest("img");
           if (!img) return;
           lightboxImg.src = img.getAttribute("data-full") || img.src;

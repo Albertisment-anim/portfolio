@@ -63,7 +63,7 @@
       </div>
       <div class="test">
         <img
-          src="img/anim/prueba low res.gif"
+          src="img/anim/ANIM-02-CARETA.gif"
           alt="animacion 1"
           data-full="img/anim/HQ/ANIM-02-CARETA_HQ.gif"
           width="252"
@@ -95,9 +95,9 @@
       </div>
       <div class="test">
         <img
-          src="img/anim/ANIM-02-CARETA.gif"
+          src="img/anim/ANIM-09-RATA.gif"
           alt="animacion 5"
-          data-full="img/anim/HQ/ANIM-02-CARETA_HQ.gif"
+          data-full="img/anim/HQ/ANIM-09-RATA_HQ.gif"
           width="252"
         />
       </div>
@@ -144,7 +144,7 @@
       </div>
       <div class="ABOUTMEANIMVISUAL">
         <img
-          src="img/anim/ANIMVISUAL-TEST-BLACK_V2.png"
+          src="img/anim/ANIMVISUAL-TEST-WHITE.png"
           alt="albertisment animando"
         />
       </div>
@@ -165,6 +165,9 @@
         if (!grid || !lightbox || !lightboxImg) return;
 
         grid.addEventListener("click", (e) => {
+          // Ignore clicks inside elements marked as nolightbox
+          if (e.target.closest(".nolightbox")) return;
+
           const img = e.target.closest("img");
           if (!img) return;
           lightboxImg.src = img.getAttribute("data-full") || img.src;

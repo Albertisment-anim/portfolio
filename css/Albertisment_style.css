@@ -5,6 +5,7 @@
  html, body {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
     background: var(--AZUL1);
     background-image: url('BG4_.webp');
     background-size: cover;
