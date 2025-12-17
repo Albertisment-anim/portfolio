@@ -34,7 +34,7 @@
     <div data-include="includes/nav.html"></div>
 
     <section id="PROJECTS-contentgrid" class="CONTENTGRID">
-      <a href="">
+      <a href="PROJ-01-ROLLINPUNKIS.html">
         <div class="tile-project">
           <img
             src="img/projects/01_rollinpunkis.webp"
@@ -251,7 +251,12 @@
     <script>
       // Check if device is mobile (you can adjust the breakpoint as needed)
       function isMobile() {
-        return window.innerWidth <= 640 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        return (
+          window.innerWidth <= 640 ||
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+        );
       }
 
       let ticking = false;
