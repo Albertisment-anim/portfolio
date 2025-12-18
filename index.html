@@ -52,7 +52,7 @@
     <div data-include="includes/header.html"></div>
     <div data-include="includes/nav.html"></div>
 
-    <section id="ANIMATION contentgrid" class="CONTENTGRID">
+    <section id="ANIMATION contentgrid" class="CONTENTGRID reveal">
       <div class="test">
         <img
           src="img/anim/ANIM-01-EXPEDICION.gif"
@@ -294,6 +294,28 @@
           setTimeout(initSideButtonsScript, 200);
         }
       })();
+    </script>
+
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // solo una vez
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      reveals.forEach((section) => {
+        observer.observe(section);
+      });
     </script>
   </body>
 </html>

@@ -33,7 +33,7 @@
     <div data-include="includes/header.html"></div>
     <div data-include="includes/nav.html"></div>
 
-    <div class="intro">
+    <div class="intro reveal">
       <section class="TITULO-PROYECTO">
         <div class="previous-project">
           <a id="nextproject-symbol" href="PROJ-08-APETECEAPERITIVO.html"><</a>
@@ -48,22 +48,27 @@
           <p id="h2-2">Shortfilm in a week</p>
           <p id="text-2">
             In 2021 I participated with Julia Rodríguez in <i>animaweek</i>, a
-            challenge designed by our school with the objective to <b>produce an
-            animated shortfilm in a week inspired by a random prompt.</b> That year's
-            prompt was "sea pollution".
-            While I storyboarded, animated and edited the video in Blender,
-            Julia did the background designs.
+            challenge designed by our school with the objective to
             <b
-              >The short went on to win best Animaweek shortfilm at Feelmotion '21 and first prize at ARTECO, a contest by Vivo Sano fundation.</b
+              >produce an animated shortfilm in a week inspired by a random
+              prompt.</b
             >
-      
+            That year's prompt was "sea pollution". While I storyboarded,
+            animated and edited the video in Blender, Julia did the background
+            designs.
+            <b
+              >The short went on to win best Animaweek shortfilm at Feelmotion
+              '21 and first prize at ARTECO, a contest by Vivo Sano
+              fundation.</b
+            >
+
             Watch it below:
           </p>
         </div>
       </section>
     </div>
 
-    <div class="anim">
+    <div class="anim reveal">
       <section class="CONTENT">
         <div>
           <iframe
@@ -195,7 +200,12 @@
     <script>
       // Check if device is mobile (you can adjust the breakpoint as needed)
       function isMobile() {
-        return window.innerWidth <= 640 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        return (
+          window.innerWidth <= 640 ||
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+        );
       }
 
       var ticking = false;
@@ -270,8 +280,19 @@
     <!-- Text color scroll effect for #text-2 -->
     <script>
       (function () {
+        // Check if device is mobile
+        function isMobile() {
+          return (
+            window.innerWidth <= 640 ||
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+              navigator.userAgent
+            )
+          );
+        }
+
         // ===== CONFIGURACIÓN - Ajusta estos valores para controlar el efecto =====
-        const config = {
+        // Desktop configuration
+        const desktopConfig = {
           // Color inicial (azul)
           startColor: { r: 0, g: 112, b: 255 }, // #0070FF (var(--AZUL1))
           // Color final (blanco)
@@ -283,6 +304,23 @@
           // Velocidad del cambio (1 = normal, 2 = más rápido, 0.5 = más lento)
           speed: 1,
         };
+
+        // Mobile configuration
+        const mobileConfig = {
+          // Color inicial (azul)
+          startColor: { r: 0, g: 112, b: 255 }, // #0070FF (var(--AZUL1))
+          // Color final (blanco)
+          endColor: { r: 117, g: 177, b: 255 }, // #f6f6f6 (var(--BLANCO))
+          // Punto de inicio de la transición (0 = cuando el elemento entra en viewport, 1 = cuando sale)
+          startPoint: 0.75, // Empieza a cambiar más temprano en mobile
+          // Punto final de la transición (0-1)
+          endPoint: 0.8, // Termina antes en mobile
+          // Velocidad del cambio (1 = normal, 2 = más rápido, 0.5 = más lento)
+          speed: 1.2, // Más rápido en mobile
+        };
+
+        // Select config based on device
+        const config = isMobile() ? mobileConfig : desktopConfig;
         // =========================================================================
 
         const textElement = document.getElementById("text-2");
@@ -314,8 +352,14 @@
           return { r, g, b };
         }
 
+        // Función para obtener la configuración actual (puede cambiar si se redimensiona)
+        function getCurrentConfig() {
+          return isMobile() ? mobileConfig : desktopConfig;
+        }
+
         // Función para actualizar el color basado en el scroll
         function updateTextColor() {
+          const currentConfig = getCurrentConfig();
           const rect = textElement.getBoundingClientRect();
           const windowHeight = window.innerHeight;
 
@@ -334,29 +378,29 @@
 
           // Aplicar los puntos de inicio y fin configurados
           let normalizedProgress = 0;
-          if (viewportProgress < config.startPoint) {
+          if (viewportProgress < currentConfig.startPoint) {
             // Antes del punto de inicio: color inicial
             normalizedProgress = 0;
-          } else if (viewportProgress > config.endPoint) {
+          } else if (viewportProgress > currentConfig.endPoint) {
             // Después del punto final: color final
             normalizedProgress = 1;
           } else {
             // Entre startPoint y endPoint: interpolar
             normalizedProgress =
-              (viewportProgress - config.startPoint) /
-              (config.endPoint - config.startPoint);
+              (viewportProgress - currentConfig.startPoint) /
+              (currentConfig.endPoint - currentConfig.startPoint);
           }
 
           // Aplicar velocidad
           const adjustedProgress = Math.max(
             0,
-            Math.min(1, normalizedProgress * config.speed)
+            Math.min(1, normalizedProgress * currentConfig.speed)
           );
 
           // Interpolar el color
           const currentColor = interpolateColor(
-            config.startColor,
-            config.endColor,
+            currentConfig.startColor,
+            currentConfig.endColor,
             adjustedProgress
           );
 
@@ -371,10 +415,11 @@
         }
 
         // Establecer color inicial al cargar la página
+        const initialConfig = getCurrentConfig();
         textElement.style.color = rgbToHex(
-          config.startColor.r,
-          config.startColor.g,
-          config.startColor.b
+          initialConfig.startColor.r,
+          initialConfig.startColor.g,
+          initialConfig.startColor.b
         );
 
         // Escuchar eventos de scroll
@@ -389,6 +434,19 @@
           { passive: true }
         );
 
+        // Actualizar cuando se redimensiona la ventana (útil para rotación de dispositivo)
+        let resizeTimeout;
+        window.addEventListener(
+          "resize",
+          () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+              updateTextColor();
+            }, 100);
+          },
+          { passive: true }
+        );
+
         // Actualizar al cargar la página (después de establecer el color inicial)
         window.addEventListener("load", updateTextColor);
         // También actualizar después de que el DOM esté listo
@@ -399,8 +457,8 @@
         }
       })();
     </script>
-     <!-- Hide side buttons when scrolled to bottom -->
-     <script>
+    <!-- Hide side buttons when scrolled to bottom -->
+    <script>
       (function () {
         // Wait for includes to load before initializing
         function initSideButtonsScript() {
@@ -457,6 +515,27 @@
           setTimeout(initSideButtonsScript, 200);
         }
       })();
+    </script>
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // solo una vez
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      reveals.forEach((section) => {
+        observer.observe(section);
+      });
     </script>
   </body>
 </html>

@@ -33,7 +33,7 @@
     <div data-include="includes/header.html"></div>
     <div data-include="includes/nav.html"></div>
 
-    <section id="PROJECTS-contentgrid" class="CONTENTGRID">
+    <section id="PROJECTS-contentgrid" class="CONTENTGRID reveal">
       <a href="PROJ-01-ROLLINPUNKIS.html">
         <div class="tile-project">
           <img
@@ -344,6 +344,27 @@
           setTimeout(initSideButtonsScript, 200);
         }
       })();
+    </script>
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // solo una vez
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      reveals.forEach((section) => {
+        observer.observe(section);
+      });
     </script>
   </body>
 </html>

@@ -33,7 +33,7 @@
     <div data-include="includes/header.html"></div>
     <div data-include="includes/nav.html"></div>
 
-    <section id="SKETCHBOOK contentgrid" class="CONTENTGRID-2">
+    <section id="SKETCHBOOK contentgrid" class="CONTENTGRID-2 reveal">
       <div>
         <img src="img/sketchbook/01_estudio3.webp" alt="QUICK POSES 1" />
       </div>
@@ -268,6 +268,27 @@
           setTimeout(initSideButtonsScript, 200);
         }
       })();
+    </script>
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // solo una vez
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      reveals.forEach((section) => {
+        observer.observe(section);
+      });
     </script>
   </body>
 </html>

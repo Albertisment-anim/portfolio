@@ -1,25 +1,23 @@
 <nav>
-    <ul>
-        <li><a href="index.html">ANIMATION</a></li>
-        <li><a href="ILLUSTRATION.html">ILLUSTRATION</a></li>
-        <li><a href="PROJECTS.html">PROJECTS</a></li>
-        <li><a href="SKETCHBOOK.html">SKETCHBOOK</a></li>
-    </ul>
-    <script>
-    (function(){
+  <ul>
+    <li><a href="index.html">ANIMATION</a></li>
+    <li><a href="ILLUSTRATION.html">ILLUSTRATION</a></li>
+    <li><a href="PROJECTS.html">PROJECTS</a></li>
+    <li><a href="SKETCHBOOK.html">SKETCHBOOK</a></li>
+  </ul>
+  <script>
+    (function () {
       try {
-        var current = window.location.pathname.split('/').pop() || 'index.html';
-        var links = document.querySelectorAll('nav ul li a');
-        for (var i=0; i<links.length; i++){
+        var current = window.location.pathname.split("/").pop() || "index.html";
+        var links = document.querySelectorAll("nav ul li a");
+        for (var i = 0; i < links.length; i++) {
           var link = links[i];
-          var href = link.getAttribute('href');
-          if (href === current || (current === '' && href === 'index.html')) {
-            link.parentElement.classList.add('active');
+          var href = link.getAttribute("href");
+          if (href === current || (current === "" && href === "index.html")) {
+            link.parentElement.classList.add("active");
           }
         }
       } catch (e) {}
     })();
-    </script>
+  </script>
 </nav>
-
-

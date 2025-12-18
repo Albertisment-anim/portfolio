@@ -22,6 +22,32 @@
     --BLANCO: #f6f6f6;
     overflow-x: hidden;
 }
+
+:root::after {
+    content:"";
+    position:fixed;
+    inset:0;
+    background: linear-gradient(
+        var(--BLANCO) 49.99%,
+        var(--AZUL1) 50%
+
+    );
+    z-index:-1;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 
+      opacity 0.8s cubic-bezier(.12,.69,.26,1),
+      transform 0.8s cubic-bezier(.12,.69,.26,1);
+    will-change: opacity, transform;
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
 
 
@@ -1090,7 +1116,7 @@ div.previous-project {
 
 
     html,body {
-        background-image: url('BG_movil6.webp');
+        background-image: url('BG_movil7.webp');
         background-size:100%;
         
    
