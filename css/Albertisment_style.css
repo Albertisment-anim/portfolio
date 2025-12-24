@@ -600,7 +600,7 @@ font-weight: 500;
 
 #text-2-white{
     font-size: 15px;
-    color: var(--BLANCO);
+    color:#ffffff;
 }
 
 
@@ -975,9 +975,7 @@ div.previous-project {
 }
 @media (max-width: 640px) {
 
-    html,body {
-        background-size: 400% 80%;
-    }
+   
     section.HEADER img {
         height: 10.5vh;
         width: auto;
@@ -996,7 +994,7 @@ div.previous-project {
     
 
     section.CONTENTGRID-2 {
-        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        grid-template-columns: repeat(1, minmax(100px, 1fr));
         gap: 3px;
     }
 
@@ -1118,8 +1116,6 @@ div.previous-project {
     html,body {
         background-image: url('BG_movil7.webp');
         background-size:100%;
-        
-   
     }
 }
   
