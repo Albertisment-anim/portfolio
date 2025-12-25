@@ -6,13 +6,6 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    background: var(--AZUL1);
-    background-image: url('BG4_.webp');
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    height: 100vh;
     font-family: "Figtree", sans-serif;
     font-size: 17px;
     font-weight: 400;
@@ -23,6 +16,24 @@
     --BLANCO: #f6f6f6;
     overflow-x: hidden;
 }
+
+
+
+body:after{
+    content:"";
+    position:fixed; /* stretch a fixed position to the whole screen */
+    top:0;
+    height:100vh; /* fix for mobile browser address bar appearing disappearing */
+    left:0;
+    right:0;
+    z-index:-1; /* needed to keep in the background */
+    background: url('BG4_.webp') center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 
 :root::after {
     content:"";
