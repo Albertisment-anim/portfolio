@@ -17,23 +17,24 @@
     overflow-x: hidden;
 }
 
-
-
-body:after{
-    content:"";
-    position:fixed; /* stretch a fixed position to the whole screen */
-    top:0;
-    height:100vh; /* fix for mobile browser address bar appearing disappearing */
-    left:0;
-    right:0;
-    z-index:-1; /* needed to keep in the background */
-    background: url('BG4_.webp') center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("BG4_.webp");
+    background-color: #0070FF;
     background-size: cover;
-}
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
 
+ .foreground {
+position: relative;
+  z-index: 1;
+ } 
 
 :root::after {
     content:"";
@@ -44,7 +45,7 @@ body:after{
         var(--AZUL1) 50%
 
     );
-    z-index:-1;
+    z-index:-2;
 }
 
 .reveal {
@@ -1125,9 +1126,10 @@ div.previous-project {
     @media (max-width: 430px) {
 
 
-    html,body {
-        background-image: url('BG_movil7.webp');
-        background-size:100%;
-    }
+    .background-container {
+      
+        background-image: url("BG_movil7.webp");
+      
+      }
 }
   
