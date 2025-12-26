@@ -10,10 +10,11 @@
     font-size: 17px;
     font-weight: 400;
     font-style: normal;
-    color: #ffffff;
+    color: var(--AZUL1);
     --AZUL1:#0070FF;
     --NARANJA1:#FF8000;
     --BLANCO: #f6f6f6;
+    
     overflow-x: hidden;
 }
 
