@@ -266,8 +266,8 @@
 
           if (isMobile()) {
             // Mobile: movimiento más suave (importante para iOS)
-            const moveY = scrollY * -0.8;
-            bg.style.backgroundPosition = `center ${moveY}px`;
+            const moveY = scrollY * 0.3;
+            bg.style.backgroundPosition = `center ${-moveY}px`;
           } else {
             // Desktop: parallax más marcado
             const moveY = scrollY * 1.5;
