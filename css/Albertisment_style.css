@@ -25,7 +25,7 @@
     height: 100vh;
     background-image: url("BG4_.webp");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     z-index: -1;
     will-change: transform;
@@ -1129,6 +1129,7 @@ div.previous-project {
     .background-container {
       
         background-image: url("BG_movil7.webp");
+    
       
       }
 }

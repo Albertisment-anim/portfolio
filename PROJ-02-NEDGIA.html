@@ -335,20 +335,22 @@
         function updateBackground() {
           const scrollY = window.scrollY;
 
+          let moveY;
+
           if (isMobile()) {
-            // Mobile: movimiento más suave (importante para iOS)
-            const moveY = scrollY * -0.8;
-            bg.style.backgroundPosition = `center ${moveY}px`;
+            // iOS / mobile: slower movement to avoid jitter
+            moveY = scrollY * -1.5;
           } else {
-            // Desktop: parallax más marcado
-            const moveY = scrollY * 1.5;
-            bg.style.backgroundPosition = `center ${-moveY}px`;
+            // Desktop: stronger parallax
+            moveY = scrollY * -1.5;
           }
+
+          // GPU-accelerated transform (smooth on iOS)
+          bg.style.transform = `translate3d(0, ${moveY}px, 0)`;
 
           ticking = false;
         }
 
-        // Establecer posición inicial al cargar
         if (bg) {
           updateBackground();
         }
