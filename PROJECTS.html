@@ -284,6 +284,11 @@
           ticking = false;
         }
 
+        // Establecer posición inicial al cargar
+        if (bg) {
+          updateBackground();
+        }
+
         window.addEventListener(
           "scroll",
           () => {

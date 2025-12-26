@@ -303,16 +303,21 @@
         ticking = false;
       }
 
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(updateBackground);
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
+        // Establecer posición inicial al cargar
+        if (bg) {
+          updateBackground();
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateBackground);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
     </script>
 
     <!-- Lightbox markup -->
