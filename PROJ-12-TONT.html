@@ -30,8 +30,12 @@
     <link rel="stylesheet" href="css/Albertisment_style.css" />
   </head>
   <body>
+    <div class="background-container"></div>
+
     <div data-include="includes/header.html"></div>
     <div data-include="includes/nav.html"></div>
+
+    <div class="foreground">
 
     <div class="intro reveal">
       <section class="TITULO-PROYECTO">
@@ -193,7 +197,6 @@
 
     <!-- Background scroll effect -->
     <script>
-      // Check if device is mobile (you can adjust the breakpoint as needed)
       function isMobile() {
         return (
           window.innerWidth <= 640 ||
@@ -203,19 +206,22 @@
         );
       }
 
-      var ticking = false;
+      const bg = document.querySelector(".background-container");
+      let ticking = false;
 
       function updateBackground() {
         const scrollY = window.scrollY;
+
         if (isMobile()) {
-          // Mobile: speed 1, no offset (positive movement)
-          const moveY = scrollY * -1.1;
-          document.body.style.backgroundPosition = `center ${moveY}px`;
+          // Mobile: movimiento más suave (importante para iOS)
+          const moveY = scrollY * -0.8;
+          bg.style.backgroundPosition = `center ${moveY}px`;
         } else {
-          // Desktop: speed 1.5, with offset (negative movement)
+          // Desktop: parallax más marcado
           const moveY = scrollY * 1.5;
-          document.body.style.backgroundPosition = `center ${-moveY}px`;
+          bg.style.backgroundPosition = `center ${-moveY}px`;
         }
+
         ticking = false;
       }
 
@@ -533,5 +539,6 @@
         observer.observe(section);
       });
     </script>
+    </div>
   </body>
 </html>

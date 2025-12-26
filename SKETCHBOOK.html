@@ -30,81 +30,87 @@
     <link rel="stylesheet" href="css/Albertisment_style.css" />
   </head>
   <body>
+    <div class="background-container"></div>
+
     <div data-include="includes/header.html"></div>
     <div data-include="includes/nav.html"></div>
 
-    <section id="SKETCHBOOK contentgrid" class="CONTENTGRID-2 reveal">
-      <div>
-        <img src="img/sketchbook/01_estudio3.webp" alt="QUICK POSES 1" />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/02_estudio2.webp" alt="QUICK POSES 2" />
-      </div>
-
-      <div>
-        <img
-          src="img/sketchbook/03_lifedrawing-rotulador.webp"
-          alt="QUICK POSES 3"
-        />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/04_estudios1.webp" alt="QUICK POSES 4" />
-      </div>
-
-      <div>
-        <img
-          src="img/sketchbook/05_lifedrawing-lapiz.webp"
-          alt="QUICK POSES 4"
-        />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/06_caras2.webp" alt="QUICK FACES 1" />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/07_caras3.webp" alt="QUICK FACES 2" />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/08_estudios4.webp" alt="ANIMAL STUDIES" />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/09_sketchbook.webp" alt="SKETCHES 1" />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/10_caras1.webp" alt="SKETCHES 2" />
-      </div>
-
-      <div>
-        <img
-          src="img/sketchbook/11_parejas.webp"
-          alt="when harry met sally studies"
-        />
-      </div>
-
-      <div>
-        <img src="img/sketchbook/12_amarillo.webp" alt="sketches yellow page" />
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="TEXTO1">
-        <p id="text-2-white">
-          That's it! Not much left to see here... maybe want to try browsing to
-          another page?
-        </p>
-        <div class="totop">
-          <a id="ending-symbol" href="#top">.·.·.</a>
+    <div class="foreground">
+      <section id="SKETCHBOOK contentgrid" class="CONTENTGRID-2 reveal">
+        <div>
+          <img src="img/sketchbook/01_estudio3.webp" alt="QUICK POSES 1" />
         </div>
-      </div>
-    </section>
 
-    <section id="ABOUTME" class="ABOUT" class="SKETCHBOOK.html#ABOUTME"> 
+        <div>
+          <img src="img/sketchbook/02_estudio2.webp" alt="QUICK POSES 2" />
+        </div>
+
+        <div>
+          <img
+            src="img/sketchbook/03_lifedrawing-rotulador.webp"
+            alt="QUICK POSES 3"
+          />
+        </div>
+
+        <div>
+          <img src="img/sketchbook/04_estudios1.webp" alt="QUICK POSES 4" />
+        </div>
+
+        <div>
+          <img
+            src="img/sketchbook/05_lifedrawing-lapiz.webp"
+            alt="QUICK POSES 4"
+          />
+        </div>
+
+        <div>
+          <img src="img/sketchbook/06_caras2.webp" alt="QUICK FACES 1" />
+        </div>
+
+        <div>
+          <img src="img/sketchbook/07_caras3.webp" alt="QUICK FACES 2" />
+        </div>
+
+        <div>
+          <img src="img/sketchbook/08_estudios4.webp" alt="ANIMAL STUDIES" />
+        </div>
+
+        <div>
+          <img src="img/sketchbook/09_sketchbook.webp" alt="SKETCHES 1" />
+        </div>
+
+        <div>
+          <img src="img/sketchbook/10_caras1.webp" alt="SKETCHES 2" />
+        </div>
+
+        <div>
+          <img
+            src="img/sketchbook/11_parejas.webp"
+            alt="when harry met sally studies"
+          />
+        </div>
+
+        <div>
+          <img
+            src="img/sketchbook/12_amarillo.webp"
+            alt="sketches yellow page"
+          />
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="TEXTO1">
+          <p id="text-2-white">
+            That's it! Not much left to see here... maybe want to try browsing
+            to another page?
+          </p>
+          <div class="totop">
+            <a id="ending-symbol" href="#top">.·.·.</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="ABOUTME" class="ABOUT">
         <div class="ABOUTMETEXTO container">
           <p>Nice to meet you! My name is Alberto.</p>
 
@@ -126,169 +132,176 @@
             alt="albertisment animando"
           />
         </div>
+      </section>
+
+      <div data-include="includes/botonesbottom.html"></div>
+
+      <!-- Lightbox markup -->
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <img id="lightbox-image" alt="Expanded image" />
       </div>
-      
-    </section>
 
-    <div data-include="includes/botonesbottom.html"></div>
+      <script>
+        (function () {
+          const grid = document.querySelector("section.CONTENTGRID-2");
+          const lightbox = document.getElementById("lightbox");
+          const lightboxImg = document.getElementById("lightbox-image");
+          if (!grid || !lightbox || !lightboxImg) return;
 
-    <!-- Lightbox markup -->
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-      <img id="lightbox-image" alt="Expanded image" />
-    </div>
+          grid.addEventListener("click", (e) => {
+            // Ignore clicks inside elements marked as nolightbox
+            if (e.target.closest(".nolightbox")) return;
 
-    <script>
-      (function () {
-        const grid = document.querySelector("section.CONTENTGRID-2");
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightbox-image");
-        if (!grid || !lightbox || !lightboxImg) return;
+            const img = e.target.closest("img");
+            if (!img) return;
+            lightboxImg.src = img.getAttribute("data-full") || img.src;
+            lightbox.classList.add("open");
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+          });
 
-        grid.addEventListener("click", (e) => {
-          // Ignore clicks inside elements marked as nolightbox
-          if (e.target.closest('.nolightbox')) return;
+          const close = () => {
+            lightbox.classList.remove("open");
+            lightbox.setAttribute("aria-hidden", "true");
+            lightboxImg.src = "";
+            document.body.style.overflow = "";
+          };
 
-          const img = e.target.closest("img");
-          if (!img) return;
-          lightboxImg.src = img.getAttribute("data-full") || img.src;
-          lightbox.classList.add("open");
-          lightbox.setAttribute("aria-hidden", "false");
-          document.body.style.overflow = "hidden";
-        });
-
-        const close = () => {
-          lightbox.classList.remove("open");
-          lightbox.setAttribute("aria-hidden", "true");
-          lightboxImg.src = "";
-          document.body.style.overflow = "";
-        };
-
-        lightbox.addEventListener("click", (e) => {
-          if (e.target === lightbox || e.target === lightboxImg) {
-            close();
-          }
-        });
-        window.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && lightbox.classList.contains("open"))
-            close();
-        });
-      })();
-    </script>
-    <script src="js/includes.js"></script>
-
-    <!-- Background scroll effect -->
-    <script>
-      // Check if device is mobile (you can adjust the breakpoint as needed)
-      function isMobile() {
-        return window.innerWidth <= 640 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      }
-
-      let ticking = false;
-
-      function updateBackground() {
-        const scrollY = window.scrollY;
-        if (isMobile()) {
-          // Mobile: speed 1, no offset (positive movement)
-          const moveY = scrollY * -1.1;
-          document.body.style.backgroundPosition = `center ${moveY}px`;
-        } else {
-          // Desktop: speed 1.5, with offset (negative movement)
-          const moveY = scrollY * 1.5;
-          document.body.style.backgroundPosition = `center ${-moveY}px`;
-        }
-        ticking = false;
-      }
-
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!ticking) {
-            requestAnimationFrame(updateBackground);
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
-    </script>
-     <!-- Hide side buttons when scrolled to bottom -->
-     <script>
-      (function () {
-        // Wait for includes to load before initializing
-        function initSideButtonsScript() {
-          const sideButtons = document.querySelector("section.BOTONES-SIDE");
-          if (!sideButtons) {
-            // If element not found, try again after a short delay
-            setTimeout(initSideButtonsScript, 100);
-            return;
-          }
-
-          let ticking = false;
-
-          function checkScrollPosition() {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollTop =
-              window.pageYOffset || document.documentElement.scrollTop;
-
-            // Check if user is at or near the bottom (within 100px)
-            const isAtBottom = scrollTop + windowHeight >= documentHeight - 100;
-
-            if (isAtBottom) {
-              sideButtons.classList.add("hide-bottom");
-            } else {
-              sideButtons.classList.remove("hide-bottom");
+          lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox || e.target === lightboxImg) {
+              close();
             }
+          });
+          window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && lightbox.classList.contains("open"))
+              close();
+          });
+        })();
+      </script>
+      <script src="js/includes.js"></script>
 
-            ticking = false;
-          }
-
-          window.addEventListener(
-            "scroll",
-            () => {
-              if (!ticking) {
-                requestAnimationFrame(checkScrollPosition);
-                ticking = true;
-              }
-            },
-            { passive: true }
+      <!-- Background scroll effect -->
+      <script>
+        function isMobile() {
+          return (
+            window.innerWidth <= 640 ||
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+              navigator.userAgent
+            )
           );
-
-          // Check on initialization in case page is already at bottom
-          checkScrollPosition();
         }
 
-        // Start checking once DOM is ready
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", function () {
-            // Wait a bit more for includes to load
-            setTimeout(initSideButtonsScript, 200);
-          });
-        } else {
-          // DOM already loaded, but includes might still be loading
-          setTimeout(initSideButtonsScript, 200);
-        }
-      })();
-    </script>
-    <script>
-      const reveals = document.querySelectorAll(".reveal");
+        const bg = document.querySelector(".background-container");
+        let ticking = false;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // solo una vez
+        function updateBackground() {
+          const scrollY = window.scrollY;
+
+          if (isMobile()) {
+            // Mobile: movimiento más suave (importante para iOS)
+            const moveY = scrollY * -0.8;
+            bg.style.backgroundPosition = `center ${moveY}px`;
+          } else {
+            // Desktop: parallax más marcado
+            const moveY = scrollY * 1.5;
+            bg.style.backgroundPosition = `center ${-moveY}px`;
+          }
+
+          ticking = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateBackground);
+              ticking = true;
             }
-          });
-        },
-        {
-          threshold: 0.1,
-        }
-      );
+          },
+          { passive: true }
+        );
+      </script>
+      <!-- Hide side buttons when scrolled to bottom -->
+      <script>
+        (function () {
+          // Wait for includes to load before initializing
+          function initSideButtonsScript() {
+            const sideButtons = document.querySelector("section.BOTONES-SIDE");
+            if (!sideButtons) {
+              // If element not found, try again after a short delay
+              setTimeout(initSideButtonsScript, 100);
+              return;
+            }
 
-      reveals.forEach((section) => {
-        observer.observe(section);
-      });
-    </script>
+            let ticking = false;
+
+            function checkScrollPosition() {
+              const windowHeight = window.innerHeight;
+              const documentHeight = document.documentElement.scrollHeight;
+              const scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop;
+
+              // Check if user is at or near the bottom (within 100px)
+              const isAtBottom =
+                scrollTop + windowHeight >= documentHeight - 100;
+
+              if (isAtBottom) {
+                sideButtons.classList.add("hide-bottom");
+              } else {
+                sideButtons.classList.remove("hide-bottom");
+              }
+
+              ticking = false;
+            }
+
+            window.addEventListener(
+              "scroll",
+              () => {
+                if (!ticking) {
+                  requestAnimationFrame(checkScrollPosition);
+                  ticking = true;
+                }
+              },
+              { passive: true }
+            );
+
+            // Check on initialization in case page is already at bottom
+            checkScrollPosition();
+          }
+
+          // Start checking once DOM is ready
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", function () {
+              // Wait a bit more for includes to load
+              setTimeout(initSideButtonsScript, 200);
+            });
+          } else {
+            // DOM already loaded, but includes might still be loading
+            setTimeout(initSideButtonsScript, 200);
+          }
+        })();
+      </script>
+      <script>
+        const reveals = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // solo una vez
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        reveals.forEach((section) => {
+          observer.observe(section);
+        });
+      </script>
+    </div>
   </body>
 </html>
