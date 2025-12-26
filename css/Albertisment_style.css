@@ -24,29 +24,27 @@
     width: 100vw;
     height: 100vh;
     background-image: url("BG4_.webp");
-    background-color: #0070FF;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
   }
 
+  :root::after {
+    content:"";
+    position:fixed;
+    inset:0;
+    background-color: var(--AZUL1);
+
+    z-index:-2;
+}
+
  .foreground {
 position: relative;
   z-index: 1;
  } 
 
-:root::after {
-    content:"";
-    position:fixed;
-    inset:0;
-    background: linear-gradient(
-        var(--BLANCO) 49.99%,
-        var(--AZUL1) 50%
 
-    );
-    z-index:-2;
-}
 
 .reveal {
     opacity: 0;
