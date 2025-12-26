@@ -516,6 +516,187 @@
         })();
       </script>
 
+      <!-- Text color scroll effect for #text-2 -->
+      <script>
+        (function () {
+          // Check if device is mobile
+          function isMobile() {
+            return (
+              window.innerWidth <= 640 ||
+              /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+              )
+            );
+          }
+
+          // ===== CONFIGURACIÓN - Ajusta estos valores para controlar el efecto =====
+          // Desktop configuration
+          const desktopConfig = {
+            // Color inicial (azul)
+            startColor: { r: 246, g: 246, b: 246 }, // #0070FF (var(--AZUL1))
+            // Color final (blanco)
+            endColor: { r: 117, g: 177, b: 255 }, // #f6f6f6 (var(--BLANCO))
+            // Punto de inicio de la transición (0 = cuando el elemento entra en viewport, 1 = cuando sale)
+            startPoint: 0.75, // Empieza a cambiar cuando el elemento entra en pantalla
+            // Punto final de la transición (0-1)
+            endPoint: 1, // Termina de cambiar cuando el elemento está a mitad de pantalla
+            // Velocidad del cambio (1 = normal, 2 = más rápido, 0.5 = más lento)
+            speed: 1,
+          };
+
+          // Mobile configuration
+          const mobileConfig = {
+            // Color inicial (azul)
+            startColor: { r: 246, g: 246, b: 246 }, // #0070FF (var(--AZUL1))
+            // Color final (blanco)
+            endColor: { r: 117, g: 177, b: 255 },
+            // Punto de inicio de la transición (0 = cuando el elemento entra en viewport, 1 = cuando sale)
+            startPoint: 0.5, // Empieza a cambiar más temprano en mobile
+            // Punto final de la transición (0-1)
+            endPoint: 0.8, // Termina antes en mobile
+            // Velocidad del cambio (1 = normal, 2 = más rápido, 0.5 = más lento)
+            speed: 1.2, // Más rápido en mobile
+          };
+
+          // Select config based on device
+          const config = isMobile() ? mobileConfig : desktopConfig;
+          // =========================================================================
+
+          const textElement = document.getElementById("text-2-white");
+          if (!textElement) {
+            console.warn("Elemento #text-2-white no encontrado");
+            return;
+          }
+
+          let ticking = false;
+
+          // Función para convertir RGB a hexadecimal
+          function rgbToHex(r, g, b) {
+            return (
+              "#" +
+              [r, g, b]
+                .map((x) => {
+                  const hex = Math.round(x).toString(16);
+                  return hex.length === 1 ? "0" + hex : hex;
+                })
+                .join("")
+            );
+          }
+
+          // Función para interpolar entre dos colores
+          function interpolateColor(color1, color2, factor) {
+            const r = color1.r + (color2.r - color1.r) * factor;
+            const g = color1.g + (color2.g - color1.g) * factor;
+            const b = color1.b + (color2.b - color1.b) * factor;
+            return { r, g, b };
+          }
+
+          // Función para obtener la configuración actual (puede cambiar si se redimensiona)
+          function getCurrentConfig() {
+            return isMobile() ? mobileConfig : desktopConfig;
+          }
+
+          // Función para actualizar el color basado en el scroll
+          function updateTextColor() {
+            const currentConfig = getCurrentConfig();
+            const rect = textElement.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Calcular la posición relativa del elemento en la ventana
+            // 0 = elemento en la parte superior de la ventana
+            // 1 = elemento en la parte inferior de la ventana
+            const elementTop = rect.top;
+            const elementHeight = rect.height;
+            const viewportProgress = Math.max(
+              0,
+              Math.min(
+                1,
+                (windowHeight - elementTop) / (windowHeight + elementHeight)
+              )
+            );
+
+            // Aplicar los puntos de inicio y fin configurados
+            let normalizedProgress = 0;
+            if (viewportProgress < currentConfig.startPoint) {
+              // Antes del punto de inicio: color inicial
+              normalizedProgress = 0;
+            } else if (viewportProgress > currentConfig.endPoint) {
+              // Después del punto final: color final
+              normalizedProgress = 1;
+            } else {
+              // Entre startPoint y endPoint: interpolar
+              normalizedProgress =
+                (viewportProgress - currentConfig.startPoint) /
+                (currentConfig.endPoint - currentConfig.startPoint);
+            }
+
+            // Aplicar velocidad
+            const adjustedProgress = Math.max(
+              0,
+              Math.min(1, normalizedProgress * currentConfig.speed)
+            );
+
+            // Interpolar el color
+            const currentColor = interpolateColor(
+              currentConfig.startColor,
+              currentConfig.endColor,
+              adjustedProgress
+            );
+
+            // Aplicar el color al elemento
+            textElement.style.color = rgbToHex(
+              currentColor.r,
+              currentColor.g,
+              currentColor.b
+            );
+
+            ticking = false;
+          }
+
+          // Establecer color inicial al cargar la página
+          const initialConfig = getCurrentConfig();
+          textElement.style.color = rgbToHex(
+            initialConfig.startColor.r,
+            initialConfig.startColor.g,
+            initialConfig.startColor.b
+          );
+
+          // Escuchar eventos de scroll
+          window.addEventListener(
+            "scroll",
+            () => {
+              if (!ticking) {
+                requestAnimationFrame(updateTextColor);
+                ticking = true;
+              }
+            },
+            { passive: true }
+          );
+
+          // Actualizar cuando se redimensiona la ventana (útil para rotación de dispositivo)
+          let resizeTimeout;
+          window.addEventListener(
+            "resize",
+            () => {
+              clearTimeout(resizeTimeout);
+              resizeTimeout = setTimeout(() => {
+                updateTextColor();
+              }, 100);
+            },
+            { passive: true }
+          );
+
+          // Actualizar al cargar la página (después de establecer el color inicial)
+          window.addEventListener("load", updateTextColor);
+          // También actualizar después de que el DOM esté listo
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", updateTextColor);
+          } else {
+            updateTextColor();
+          }
+        })();
+      </script>
+
       <!-- Hide side buttons when scrolled to bottom -->
       <script>
         (function () {
