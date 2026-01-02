@@ -199,7 +199,6 @@ section.CONTENTGRID img, video {
     width: 100%;
     height: auto;
     display: block;
-    cursor: pointer;
     transition: scale 0.7s cubic-bezier(0,.91,0,.99);
 }
 
@@ -1016,7 +1015,6 @@ div.previous-project {
     
     section.CONTENTGRID-2-VIMEO iframe {
         height: 200px;
-     
     }
     
     section.CONTENT img {
