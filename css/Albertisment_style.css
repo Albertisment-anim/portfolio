@@ -167,10 +167,14 @@ section.HEADER img {
 
 #LOGO-GIF{
     opacity: 0;
+    filter: saturate(1.25) contrast(1.02);
+
 }
 
 #LOGO-GIF:hover{
     opacity:1;
+    filter: saturate(1.25) contrast(1.02);
+
 }
 
 
@@ -509,6 +513,8 @@ div.tile-project {
     height:50vh;
 }
 
+
+
 /* Remove underline on links wrapping project tiles */
 section.CONTENTGRID > a,
 section.CONTENTGRID > a:visited,
@@ -616,6 +622,10 @@ font-weight: 500;
     color:#ffffff;
 }
 
+#LOGO-GIF{
+
+}
+
 
 
 div.TEXTO1 {
@@ -646,19 +656,42 @@ section.ABOUT {
     margin-bottom: 35px;
     justify-content: center;
 }
- div.ABOUTMEANIMVISUAL img{
+ div.ABOUTMEANIMVISUAL {
     justify-content: center;
-    height: 50vh;
-    width: auto;
+    margin:-170px;
+    z-index: 2;
+    transform: translateX(-20px);
 }
 
+#canvas {
+    width: 80vh;
+    height: 80vh;
+    filter: saturate(1.25) contrast(1.02);
+    cursor:pointer;
+  }
+.ABOUTME-FONDO{
+    width: 100vw;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+}
 
-
+.ABOUTME-FONDO img{
+    width: 100vw;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+    transform: translateY(-500px);
+    z-index: 1;
+}
 
 /*BOTONES*/
 
 section.BOTONESBOTTOM{
     display:flex;
+    z-index: 2;
     justify-content: center;
     align-items: center;
     margin-top: 40px;

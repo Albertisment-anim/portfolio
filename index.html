@@ -29,6 +29,8 @@
       sizes="32x32"
       href="img/favicon/favicon32.png"
     />
+    <script src="https://unpkg.com/@rive-app/canvas"></script>
+
     <link
       rel="icon"
       type="image/png"
@@ -146,12 +148,16 @@
           <p>I hope we get to work together sometime!</p>
         </div>
         <div class="ABOUTMEANIMVISUAL">
-          <img
-            src="img/anim/ANIMVISUAL-TEST-WHITE.png"
-            alt="albertisment animando"
-          />
+          <canvas id="canvas"></canvas>
         </div>
       </section>
+      <div class="ABOUTME-FONDO">
+        <img
+          id="nohover"
+          src="img/FONDO-AUTOANIMACION.webp"
+          alt="fondo-animacion"
+        />
+      </div>
 
       <div data-include="includes/botonesbottom.html"></div>
 
@@ -328,6 +334,23 @@
 
         reveals.forEach((section) => {
           observer.observe(section);
+        });
+      </script>
+
+      <!--//RIVE ANIMATION//-->
+      <script>
+        const r = new rive.Rive({
+          src: "autoanimacion.riv",
+          canvas: document.getElementById("canvas"),
+          autoplay: true,
+          alpha: true,
+          premultipliedAlpha: false,
+          useOffscreenRenderer: true,
+          artboard: "Desktop - 1", // Optional. If not supplied the default is selected
+          stateMachines: "ALBERTISMENT WEB",
+          onLoad: () => {
+            r.resizeDrawingSurfaceToCanvas();
+          },
         });
       </script>
     </div>
