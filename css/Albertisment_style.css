@@ -644,6 +644,16 @@ div.TEXTO1 {
 
 /*ABOUT ME*/
 
+section.ABOUTME div.ABOUTMETEXTO p{
+    font-size: 15px;
+}
+
+ section.ABOUTME .ABOUTMEANIMVISUAL img{
+    justify-content: center;
+    height: 40vh;
+    width: auto;
+}
+
 section.ABOUT {
     flex: 1;
     display: flex;
@@ -670,20 +680,27 @@ section.ABOUT {
     cursor:pointer;
   }
 .ABOUTME-FONDO{
-    width: 100vw;
+    width: 100%;
     position: absolute;
+    bottom: 0;
+    left: 0;
     margin: 0px;
     padding: 0px;
-    max-width: 100%;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .ABOUTME-FONDO img{
-    width: 100vw;
     position: absolute;
+    bottom: 0;
+    left: 0%;
+    transform: translateX(0%);
+    transform: translateY(10%);
+    width: 1920px;
+    max-width: 100%;
+    height:80vh;
     margin: 0px;
     padding: 0px;
-    max-width: 100%;
-    transform: translateY(-500px);
     z-index: 1;
 }
 
@@ -1016,8 +1033,14 @@ div.previous-project {
         margin-right: 10px;
     }
 
-    
-    
+    .ABOUTME-FONDO img{
+        width: 1920px;
+        max-width: 100%;
+        height:50vh;
+        left: 50%;
+    transform: translateX(-50%);
+
+    }
 }
 @media (max-width: 640px) {
 
@@ -1073,15 +1096,6 @@ div.previous-project {
         padding-right: 10px;
      }
 
-     section.ABOUTME div.ABOUTMETEXTO p{
-        font-size: 15px;
-    }
-
-     section.ABOUTME .ABOUTMEANIMVISUAL img{
-        justify-content: center;
-        height: 40vh;
-        width: auto;
-    }
 
     section.BOTONESBOTTOM{
        
@@ -1154,7 +1168,17 @@ div.previous-project {
 #desaparecermovil{
     opacity: 0;
 }
+
+.ABOUTME-FONDO img{
+    width: 1920px;
+    max-width: 300%;
+    height:50vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
     }
+
+
 
     @media (max-width: 430px) {
 
