@@ -1126,6 +1126,8 @@ div.previous-project {
     #nextproject-symbol {
         font-size: 25px;
     }
+
+    
     
     section.CONTENTGRID-nomargin {
         
@@ -1177,6 +1179,13 @@ div.previous-project {
 }
     }
 
+    div.ABOUTMEANIMVISUAL {
+        justify-content: center;
+        margin:-140px;
+        z-index: 2;
+        transform: translateX(-20px);
+    }
+
 
 
     @media (max-width: 430px) {
@@ -1185,8 +1194,12 @@ div.previous-project {
     .background-container {
       
         background-image: url("BG_movil7.webp");
-    
       
       }
+
+      section.CONTENTGRID {
+      grid-template-columns: repeat(1, minmax(180px, 1fr));
+      }
+
 }
   
