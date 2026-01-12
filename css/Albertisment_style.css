@@ -676,6 +676,7 @@ section.ABOUT {
     margin: 0;
     margin-bottom: 35px;
     justify-content: center;
+    z-index: 1;
 }
  div.ABOUTMEANIMVISUAL {
     justify-content: center;
@@ -689,6 +690,7 @@ section.ABOUT {
     height: 80vh;
     filter: saturate(1.25) contrast(1.02);
     cursor:pointer;
+    z-index: 0;
   }
 .ABOUTME-FONDO{
     width: 100%;
