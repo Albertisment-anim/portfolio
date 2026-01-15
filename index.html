@@ -64,6 +64,45 @@
 
     <div class="foreground">
       <section id="ANIMATION contentgrid" class="CONTENTGRID reveal">
+        <div>
+          <video
+            data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"
+            autoplay
+            playsinline
+            muted
+            preload="auto"
+            loop
+          >
+            <source src="img/anim/ANIMCOLOR-01-REEL.mp4" type="video/mp4" />
+            Your browser does not support the video tag
+          </video>
+        </div>
+        <div>
+          <video
+            data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"
+            autoplay
+            playsinline
+            muted
+            preload="auto"
+            loop
+          >
+            <source src="img/anim/ANIMCOLOR-02-REEL.mp4" type="video/mp4" />
+            Your browser does not support the video tag
+          </video>
+        </div>
+        <div>
+          <video
+            data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"
+            autoplay
+            playsinline
+            muted
+            preload="auto"
+            loop
+          >
+            <source src="img/anim/ANIMCOLOR-03-REEL.mp4" type="video/mp4" />
+            Your browser does not support the video tag
+          </video>
+        </div>
         <div class="test">
           <img
             src="img/anim/ANIM-01-EXPEDICION.gif"
@@ -187,6 +226,16 @@
       <div class="lightbox" id="lightbox" aria-hidden="true">
         <img id="lightbox-image" alt="Expanded image" />
       </div>
+      <div class="lightbox2" id="lightbox2" aria-hidden="true">
+        <video
+          id="lightbox-video"
+          alt="Expanded image"
+          autoplay
+          controls
+          preload="auto"
+          loop
+        />
+      </div>
 
       <script>
         (function () {
@@ -221,6 +270,43 @@
           });
           window.addEventListener("keydown", (e) => {
             if (e.key === "Escape" && lightbox.classList.contains("open"))
+              close();
+          });
+        })();
+      </script>
+      <script>
+        (function () {
+          const grid = document.querySelector("section.CONTENTGRID");
+          const lightbox2 = document.getElementById("lightbox2");
+          const lightboxVid = document.getElementById("lightbox-video");
+          if (!grid || !lightbox2 || !lightboxVid) return;
+
+          grid.addEventListener("click", (e) => {
+            // Ignore clicks inside elements marked as nolightbox
+            if (e.target.closest(".nolightbox")) return;
+
+            const video = e.target.closest("video");
+            if (!video) return;
+            lightboxVid.src = video.getAttribute("data-full") || video.src;
+            lightbox2.classList.add("open");
+            lightbox2.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+          });
+
+          const close = () => {
+            lightbox2.classList.remove("open");
+            lightbox2.setAttribute("aria-hidden", "true");
+            lightboxVid.src = "";
+            document.body.style.overflow = "";
+          };
+
+          lightbox2.addEventListener("click", (e) => {
+            if (e.target === lightbox2 || e.target === lightboxVid) {
+              close();
+            }
+          });
+          window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && lightbox2.classList.contains("open"))
               close();
           });
         })();
