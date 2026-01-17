@@ -44,7 +44,7 @@
       </div>
       <div class="demoreel">
         <canvas id="canvas-playreel-1" data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"></canvas>
-        <video  autoplay playsinline muted
+        <video  autoplay playsinline muted data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"
           poster="img/anim/REEL.webp" preload="auto" loop>
           <source src="img/anim/ANIMCOLOR-01-REEL.mp4" type="video/mp4" />
           Your browser does not support the video tag
@@ -57,7 +57,7 @@
      
       <div class="demoreel">
         <canvas id="canvas-playreel-2" data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"></canvas>
-        <video  autoplay playsinline muted
+        <video  autoplay playsinline muted data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"
           poster="img/anim/REEL.webp" preload="auto" loop>
           <source src="img/anim/ANIMCOLOR-03-REEL.mp4" type="video/mp4" />
           Your browser does not support the video tag
@@ -68,7 +68,7 @@
       </div>
       <div class="demoreel">
         <canvas id="canvas-playreel-3" data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"></canvas>
-        <video  autoplay playsinline muted
+        <video  autoplay playsinline muted data-full="img/anim/ALBERTISMENT_ANIMREEL_2025.mp4"
           poster="img/anim/REEL.webp" preload="auto" loop>
           <source src="img/anim/ANIMCOLOR-02-REEL.mp4" type="video/mp4" />
           Your browser does not support the video tag
@@ -142,7 +142,7 @@
       <img id="lightbox-image" alt="Expanded image" />
     </div>
     <div class="lightbox2" id="lightbox2" aria-hidden="true">
-      <video id="lightbox-video" alt="Expanded image" controls preload="auto" loop />
+      <video id="lightbox-video" alt="Expanded image" autoplay controls preload="auto" loop />
     </div>
 
     <script>
@@ -193,7 +193,7 @@
           // Ignore clicks inside elements marked as nolightbox
           if (e.target.closest(".nolightbox")) return;
 
-          const video = e.target.closest("canvas");
+          const video = e.target.closest("canvas, video");
           if (!video) return;
           lightboxVid.src = video.getAttribute("data-full") || video.src;
           lightbox2.classList.add("open");
