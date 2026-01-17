@@ -237,6 +237,7 @@ img:hover {
 	position: absolute;
 	cursor: pointer;
 	z-index: 1;
+	display: block;
 }
 
 section.COLUMNAS {
@@ -1081,6 +1082,12 @@ div.previous-project {
 	section.HEADER img {
 		height: 10.5vh;
 		width: auto;
+	}
+
+	#canvas-playreel-1,
+	#canvas-playreel-2,
+	#canvas-playreel-3 {
+		display: none;
 	}
 
 	section.CONTENTGRID {
