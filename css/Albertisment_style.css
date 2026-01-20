@@ -231,8 +231,8 @@ img:hover {
 #canvas-playreel-1,
 #canvas-playreel-2,
 #canvas-playreel-3 {
-	height: 100%;
-	width: 100%;
+	width: 346px;
+	height: 194.63px;
 	object-fit: cover;
 	position: absolute;
 	cursor: pointer;
@@ -1075,6 +1075,13 @@ div.previous-project {
 		height: 60vh;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+
+	#canvas-playreel-1,
+	#canvas-playreel-2,
+	#canvas-playreel-3 {
+		width: 100%;
+		height: 100%;
 	}
 }
 
