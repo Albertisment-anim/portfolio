@@ -1101,6 +1101,8 @@ div.previous-project {
 		gap: 5px;
 		padding: 5px;
 		flex-wrap: wrap;
+		margin-top: 0px;
+		margin-bottom: 0px;
 	}
 
 	section.CONTENTGRID .columna1,
@@ -1129,6 +1131,16 @@ div.previous-project {
 	section.CONTENT iframe {
 		width: 390px;
 		height: 200px;
+	}
+	section.CONTENT {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	section.CONTENT video,
+	img {
+		padding-right: 6px;
+		padding-left: 6px;
 	}
 
 	nav {

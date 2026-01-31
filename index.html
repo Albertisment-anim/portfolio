@@ -77,26 +77,43 @@
       <div class="test">
         <img src="img/anim/ANIM-04-RP1.gif" alt="animacion 4" data-full="img/anim/HQ/ANIM-04-RP1_HQ.gif" width="252" />
       </div>  
-      <div class="test">
-        <img src="img/anim/ANIM-09-RATA.gif" alt="animacion 5" data-full="img/anim/HQ/ANIM-09-RATA_HQ.gif"
-          width="252" />
-      </div>
-      <div class="test">
-        <img src="img/anim/ANIM-06-HOUSEBROKEN.gif" alt="animacion 6" data-full="img/anim/HQ/ANIM-06-HOUSEBROKEN_HQ.gif"
-          width="252" />
-      </div>
-      <div class="test">
-        <img src="img/anim/ANIM-07-HORMIGAS.gif" alt="animacion 7" data-full="img/anim/HQ/ANIM-07-HORMIGAS_HQ.gif"
-          width="252" />
-      </div>
+  
       <div class="test">
         <img src="img/anim/ANIM-03-LOSS.gif" alt="animacion 3" data-full="img/anim/HQ/ANIM-03-LOSS_HQ.gif"
           width="252" />
+
       </div>
-      <div class="test">
-        <img src="img/anim/ANIM-08-VOLTERETA.gif" alt="animacion 8" data-full="img/anim/HQ/ANIM-08-VOLTERETA_HQ.gif"
+      <div class="test" >
+        <img src="img/anim/ANIM-06-HOUSEBROKEN.gif" alt="animacion 6" data-full="img/anim/HQ/ANIM-06-HOUSEBROKEN_HQ.gif"
           width="252" />
       </div>
+    
+    </section>
+
+<section class="CONTENT"> <div>
+      <video autoplay playsinline muted controls data-full="img/anim/ALBERTISMENT_ROUGHANIMREEL_2025.mp4"
+       preload="auto" loop>
+      <source src="img/anim/ALBERTISMENT_ROUGHANIMREEL_2025.mp4" type="video/mp4" />
+      Your browser does not support the video tag
+    </video>
+    </div> </section>
+    
+    <section class="CONTENTGRID"> 
+      <div class="test" >
+        <img src="img/anim/ANIM-07-HORMIGAS.gif" alt="animacion 6" data-full="img/anim/HQ/ANIM-07-HORMIGAS_HQ.gif"
+          width="252" />
+      </div>
+    
+      <div class="test" >
+        <img src="img/anim/ANIM-09-RATA.gif" alt="animacion 6" data-full="img/anim/HQ/ANIM-09-RATA_HQ.gif"
+          width="252" />
+      </div>
+    
+      <div class="test" >
+        <img src="img/anim/ANIM-08-VOLTERETA.gif" alt="animacion 6" data-full="img/anim/HQ/ANIM-08-VOLTERETA_HQ.gif"
+          width="252" />
+      </div>
+    
     </section>
 
     <section class="container">
@@ -147,7 +164,7 @@
 
     <script>
       (function () {
-        const grid = document.querySelector("section.CONTENTGRID");
+        const grid = document.querySelector(".foreground");
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightbox-image");
         if (!grid || !lightbox || !lightboxImg) return;
@@ -182,43 +199,51 @@
         });
       })();
     </script>
-    <script>
-      (function () {
-        const grid = document.querySelector("section.CONTENTGRID");
-        const lightbox2 = document.getElementById("lightbox2");
-        const lightboxVid = document.getElementById("lightbox-video");
-        if (!grid || !lightbox2 || !lightboxVid) return;
-
-        grid.addEventListener("click", (e) => {
+   <script>
+    (function () {
+      const grid = document.querySelectorAll("section.CONTENTGRID, section.CONTENT");
+      const lightbox2 = document.getElementById("lightbox2");
+      const lightboxVid = document.getElementById("lightbox-video");
+      if (!grid.length || !lightbox2 || !lightboxVid) return;
+  
+      grid.forEach(section => {
+        section.addEventListener("click", (e) => {
           // Ignore clicks inside elements marked as nolightbox
           if (e.target.closest(".nolightbox")) return;
-
+  
           const video = e.target.closest("canvas, video");
           if (!video) return;
-          lightboxVid.src = video.getAttribute("data-full") || video.src;
+  
+          lightboxVid.src =
+            video.getAttribute("data-full") || video.src;
+  
           lightbox2.classList.add("open");
           lightbox2.setAttribute("aria-hidden", "false");
           document.body.style.overflow = "hidden";
         });
-
-        const close = () => {
-          lightbox2.classList.remove("open");
-          lightbox2.setAttribute("aria-hidden", "true");
-          lightboxVid.src = "";
-          document.body.style.overflow = "";
-        };
-
-        lightbox2.addEventListener("click", (e) => {
-          if (e.target === lightbox2 || e.target === lightboxVid) {
-            close();
-          }
-        });
-        window.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && lightbox2.classList.contains("open"))
-            close();
-        });
-      })();
-    </script>
+      });
+  
+      const close = () => {
+        lightbox2.classList.remove("open");
+        lightbox2.setAttribute("aria-hidden", "true");
+        lightboxVid.src = "";
+        document.body.style.overflow = "";
+      };
+  
+      lightbox2.addEventListener("click", (e) => {
+        if (e.target === lightbox2 || e.target === lightboxVid) {
+          close();
+        }
+      });
+  
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox2.classList.contains("open")) {
+          close();
+        }
+      });
+    })();
+  </script>
+  
 
     <script src="js/includes.js"></script>
 
