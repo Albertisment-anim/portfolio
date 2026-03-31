@@ -781,27 +781,36 @@ section.BOTONESBOTTOM .LinkedIn {
 
 /* Swap PNGs on hover (match current HTML classes) */
 
-section.BOTONESBOTTOM img {
+section.BOTONESBOTTOM svg {
 	width: 20px;
 	height: auto;
 	padding: 0px;
 	padding-bottom: 3px;
 }
 
-section.BOTONESBOTTOM .IG a img {
-	content: url("../img/buttons/buttonIG.webp");
+section.BOTONESBOTTOM .IG a svg {
+	width: 25px;
+	height: auto;
+	padding: 0px;
+	padding-bottom: 0px;
+	fill: var(--NARANJA1);
 }
 
-section.BOTONESBOTTOM .IG a:hover img {
-	content: url("../img/buttons/buttonIG_hover.webp");
+section.BOTONESBOTTOM .IG a:hover svg {
+	fill: var(--AZUL1);
 }
 
-section.BOTONESBOTTOM .LinkedIn a img {
-	content: url("../img/buttons/buttonLINKEDIN.webp");
+section.BOTONESBOTTOM .LinkedIn a svg {
+	width: 20px;
+	margin: 0px;
+	height: auto;
+	padding: 0px;
+	padding-bottom: 0px;
+	fill: var(--NARANJA1);
 }
 
-section.BOTONESBOTTOM .LinkedIn a:hover img {
-	content: url("../img/buttons/buttonLINKEDIN_hover.webp");
+section.BOTONESBOTTOM .LinkedIn a:hover svg {
+	fill: var(--AZUL1);
 }
 
 /*BOTONES SIDE*/
@@ -878,27 +887,36 @@ section.BOTONES-SIDE .LinkedIn {
 
 /* Swap PNGs on hover (match current HTML classes) */
 
-section.BOTONES-SIDE img {
+section.BOTONES-SIDE svg {
 	width: 20px;
 	height: auto;
 	padding: 0px;
 	padding-bottom: 3px;
 }
 
-section.BOTONES-SIDE .IG a img {
-	content: url("../img/buttons/buttonIG.webp");
+section.BOTONES-SIDE .IG a svg {
+	width: 25px;
+	height: auto;
+	padding: 0px;
+	padding-bottom: 0px;
+	fill: var(--NARANJA1);
 }
 
-section.BOTONES-SIDE .IG a:hover img {
-	content: url("../img/buttons/buttonIG_hover.webp");
+section.BOTONES-SIDE .IG a:hover svg {
+	fill: var(--AZUL1);
 }
 
-section.BOTONES-SIDE .LinkedIn a img {
-	content: url("../img/buttons/buttonLINKEDIN.webp");
+section.BOTONES-SIDE .LinkedIn a svg {
+	width: 20px;
+	margin: 0px;
+	height: auto;
+	padding: 0px;
+	padding-bottom: 0px;
+	fill: var(--NARANJA1);
 }
 
-section.BOTONES-SIDE .LinkedIn a:hover img {
-	content: url("../img/buttons/buttonLINKEDIN_hover.webp");
+section.BOTONES-SIDE .LinkedIn a:hover svg {
+	fill: var(--AZUL1);
 }
 
 #ending-symbol {
